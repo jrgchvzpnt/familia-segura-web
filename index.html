@@ -150,6 +150,25 @@
   footer { border-top:1px solid var(--line); padding-block:34px; color: var(--muted); font-size:.9rem; }
   .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; align-items:center; }
 
+  /* Header nav + hero microcopy */
+  .nav-links { display:flex; gap:28px; font-size:.92rem; font-weight:500; color:var(--muted); }
+  .nav-links a { transition: color .2s; }
+  .nav-links a:hover { color:var(--fg); }
+  .micro { color:var(--faint); font-size:.84rem; margin-top:13px; }
+
+  /* Footer */
+  .foot-top { display:grid; grid-template-columns:2.2fr 1fr 1.2fr 1fr; gap:30px; padding-block:12px 32px; }
+  .foot-brand p { color:var(--muted); font-size:.92rem; margin-top:14px; max-width:36ch; }
+  .badge-android { display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-size:.82rem; color:var(--muted); border:1px solid var(--line-2); border-radius:999px; padding:7px 14px; }
+  .foot-col h4 { font-family:var(--font-head); font-size:.8rem; letter-spacing:.07em; text-transform:uppercase; color:var(--faint); margin:0 0 14px; font-weight:600; }
+  .foot-col a, .foot-contact { display:block; color:var(--muted); font-size:.93rem; padding:5px 0; transition: color .2s; }
+  .foot-col a:hover { color:var(--fg); }
+  .foot-contact { user-select:text; }
+  .foot-bottom { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; border-top:1px solid var(--line); padding-top:22px; color:var(--faint); font-size:.85rem; }
+  @media (max-width:760px){ .foot-top{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:720px){ .nav-links{ display:none; } }
+  @media (max-width:460px){ .foot-top{ grid-template-columns:1fr; gap:22px; } }
+
   /* Tarjeta del mapa (teléfono) */
   .mini-card { position:absolute; left:12px; right:12px; bottom:12px; display:flex; align-items:center; gap:11px; background: rgba(13,17,24,.92); backdrop-filter: blur(8px); border:1px solid var(--line-2); border-radius:16px; padding:10px 12px; }
   .mini-av { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:var(--font-head); font-weight:700; font-size:.9rem; flex:none; }
@@ -194,15 +213,20 @@
 
 <header>
   <div class="wrap nav">
-    <div class="brand">
+    <a class="brand" href="#top">
       <span class="logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
       Familia Segura
-    </div>
-    <a class="nav-cta" href="#planes">Ver planes</a>
+    </a>
+    <nav class="nav-links">
+      <a href="#funciones">Funciones</a>
+      <a href="#como">Cómo funciona</a>
+      <a href="#planes">Planes</a>
+    </nav>
+    <a class="nav-cta" href="#planes">Empezar gratis</a>
   </div>
 </header>
 
-<div class="hero-wrap">
+<div class="hero-wrap" id="top">
   <div class="hero-glow"></div>
   <div class="wrap">
     <section class="hero">
@@ -214,6 +238,7 @@
           <a class="btn btn-primary" href="#planes">Empezar gratis</a>
           <a class="btn btn-ghost" href="#como">Cómo funciona</a>
         </div>
+        <p class="micro">Gratis para empezar · Sin tarjeta · Cancela cuando quieras</p>
         <div class="trust">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Privado, solo tu familia</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Sin anuncios</span>
@@ -369,7 +394,7 @@
   </div>
 </section>
 
-<section style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="privacidad" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap privacy">
     <div>
       <span class="eyebrow">Privacidad</span>
@@ -426,12 +451,37 @@
 </div>
 
 <footer>
-  <div class="wrap foot">
-    <div class="brand" style="font-size:1rem">
-      <span class="logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
-      Familia Segura
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand" style="font-size:1.05rem">
+          <span class="logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
+          Familia Segura
+        </div>
+        <p>Un mapa privado para cuidar a quienes quieres. Hecho con cariño para familias.</p>
+        <span class="badge-android"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="m5 3 14 9-14 9V3z"/></svg> Disponible para Android</span>
+      </div>
+      <div class="foot-col">
+        <h4>Producto</h4>
+        <a href="#funciones">Funciones</a>
+        <a href="#como">Cómo funciona</a>
+        <a href="#planes">Planes y precios</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <span class="foot-contact">hola@familiasegura.app</span>
+        <span class="foot-contact">Soporte por WhatsApp</span>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <a href="#privacidad">Privacidad</a>
+        <a href="#privacidad">Términos de uso</a>
+      </div>
     </div>
-    <span>Hecho para cuidar a quienes quieres · Android</span>
+    <div class="foot-bottom">
+      <span>© 2026 Familia Segura · Todos los derechos reservados.</span>
+      <span>Hecho para cuidar a quienes quieres.</span>
+    </div>
   </div>
 </footer>
 

@@ -150,6 +150,38 @@
   footer { border-top:1px solid var(--line); padding-block:34px; color: var(--muted); font-size:.9rem; }
   .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; align-items:center; }
 
+  /* Tarjeta del mapa (teléfono) */
+  .mini-card { position:absolute; left:12px; right:12px; bottom:12px; display:flex; align-items:center; gap:11px; background: rgba(13,17,24,.92); backdrop-filter: blur(8px); border:1px solid var(--line-2); border-radius:16px; padding:10px 12px; }
+  .mini-av { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:var(--font-head); font-weight:700; font-size:.9rem; flex:none; }
+  .mini-info { display:flex; flex-direction:column; min-width:0; }
+  .mini-info b { font-family:var(--font-head); font-size:.92rem; }
+  .mini-info span { color:var(--muted); font-size:.72rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mini-ping { margin-left:auto; color:var(--good); font-size:.64rem; font-weight:600; white-space:nowrap; }
+
+  /* Página de contratación */
+  #checkout { position:fixed; inset:0; z-index:60; background:var(--bg); overflow-y:auto; }
+  #checkout .wrap { padding-block:26px 64px; }
+  .back { background:var(--glass); border:1px solid var(--line-2); color:var(--fg); font-family:var(--font-head); font-weight:600; font-size:.9rem; border-radius:999px; padding:9px 16px; cursor:pointer; transition:border-color .2s; }
+  .back:hover { border-color:var(--brand); }
+  .ck-grid { display:grid; grid-template-columns:1.3fr .9fr; gap:28px; margin-top:24px; align-items:start; }
+  .ck-main h2 { font-size:clamp(1.7rem,4vw,2.4rem); margin-top:10px; }
+  .ck-main .muted { color:var(--muted); margin-top:10px; max-width:48ch; }
+  .ck-form { display:grid; gap:14px; margin-top:26px; max-width:460px; }
+  .ck-form label { display:grid; gap:6px; font-size:.9rem; color:var(--muted); font-weight:500; }
+  .ck-form input { font-family:var(--font-body); font-size:1rem; padding:12px 14px; border:1px solid var(--line-2); border-radius:12px; background:var(--surface); color:var(--fg); }
+  .ck-form input:focus-visible { outline:2px solid var(--brand); outline-offset:1px; }
+  .ck-form .btn { margin-top:6px; }
+  .ck-legal { color:var(--faint); font-size:.82rem; margin-top:2px; }
+  .ck-done { margin-top:26px; background:linear-gradient(135deg, color-mix(in srgb, var(--good) 14%, var(--surface)), var(--surface)); border:1px solid color-mix(in srgb, var(--good) 34%, var(--line)); border-radius:18px; padding:26px; max-width:460px; }
+  .ck-done h3 { font-size:1.3rem; } .ck-done p { color:var(--muted); margin-top:8px; }
+  .ck-summary { background:var(--surface); border:1px solid var(--line-2); border-radius:20px; padding:26px; position:sticky; top:24px; }
+  .ck-plan { font-family:var(--font-head); font-weight:700; font-size:1.2rem; }
+  .ck-summary .price { margin:14px 0 2px; }
+  .ck-summary ul { list-style:none; padding:0; margin:18px 0 0; display:grid; gap:11px; }
+  .ck-summary li { display:flex; gap:10px; align-items:flex-start; font-size:.94rem; }
+  .ck-summary li svg { width:15px; height:15px; color:var(--good); flex:none; margin-top:3px; }
+  @media (max-width:760px){ .ck-grid{ grid-template-columns:1fr; } .ck-summary{ position:static; order:-1; } }
+
   @media (max-width: 880px) {
     .hero { grid-template-columns:1fr; gap:36px; text-align:center; padding-block:48px; }
     .hero .lead { margin-inline:auto; }
@@ -191,20 +223,28 @@
       <div class="phone" aria-hidden="true">
         <div class="phone-frame">
           <div class="phone-screen">
-            <svg viewBox="0 0 180 380" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
-              <rect width="180" height="380" fill="#0c1016"/>
-              <g stroke="#1b2230" stroke-width="7" fill="none"><path d="M-10 74 H190 M-10 158 H190 M-10 250 H190 M-10 324 H190 M40 -10 V390 M112 -10 V390 M152 -10 V390"/></g>
-              <path d="M40 324 L40 250 L112 250 L112 158 L152 158" stroke="#3d7dff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="112" cy="158" r="30" fill="#3ddc84" opacity=".16"/>
-              <circle cx="112" cy="158" r="30" fill="none" stroke="#3ddc84" stroke-width="2.5"/>
-              <circle cx="112" cy="158" r="7" fill="#3ddc84"/>
+            <svg viewBox="0 0 300 600" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+              <defs><filter id="ps" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity=".55"/></filter></defs>
+              <rect width="300" height="600" fill="#0b0f16"/>
+              <rect x="162" y="38" width="160" height="124" rx="16" fill="#132220"/>
+              <path d="M-20 452 C 50 412 100 482 182 452 S 332 492 352 462 L352 620 L-20 620Z" fill="#0d1c2b"/>
+              <path d="M-20 452 C 50 412 100 482 182 452 S 332 492 352 462" stroke="#17324a" stroke-width="2" fill="none"/>
+              <g stroke="#19222e" stroke-width="5" stroke-linecap="round"><path d="M0 92 H300 M0 384 H300 M0 518 H300 M66 0 V600 M232 0 V600"/></g>
+              <path d="M0 212 H150 V300 H300" stroke="#26323f" stroke-width="10" fill="none" stroke-linecap="round"/>
+              <path d="M0 212 H150 V300 H300" stroke="#37465a" stroke-width="2" fill="none" stroke-dasharray="1 11" stroke-linecap="round"/>
+              <path d="M96 518 V452 H150 V300" stroke="#3d7dff" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".2"/>
+              <path d="M96 518 V452 H150 V300" stroke="#3d7dff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <g filter="url(#ps)"><circle cx="66" cy="384" r="15" fill="#f2994a" stroke="#0b0f16" stroke-width="3"/><text x="66" y="389" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#2a1600">I</text></g>
+              <g filter="url(#ps)"><circle cx="232" cy="470" r="15" fill="#3ddc84" stroke="#0b0f16" stroke-width="3"/><text x="232" y="475" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#06130c">R</text></g>
+              <circle cx="150" cy="300" r="46" fill="#3d7dff" opacity=".12"/>
+              <circle cx="150" cy="300" r="46" fill="none" stroke="#3d7dff" stroke-width="1.5" opacity=".45"/>
+              <g filter="url(#ps)"><path d="M150 266c-11 0-20 9-20 20 0 14 20 32 20 32s20-18 20-32c0-11-9-20-20-20z" fill="#d6409f" stroke="#fff" stroke-width="2.5"/><circle cx="150" cy="286" r="8" fill="#fff"/></g>
             </svg>
             <div class="sos-badge">SOS</div>
-            <div class="avatars">
-              <div class="av" style="background:#d6409f">J</div>
-              <div class="av" style="background:#f2994a">I</div>
-              <div class="av" style="background:#3d7dff">M</div>
-              <div class="av" style="background:#3ddc84">R</div>
+            <div class="mini-card">
+              <span class="mini-av" style="background:#d6409f">J</span>
+              <div class="mini-info"><b>Juan</b><span>En movimiento · hace 1 min · 78%</span></div>
+              <span class="mini-ping">● en vivo</span>
             </div>
           </div>
         </div>
@@ -307,7 +347,7 @@
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Avísame cuando llegue</li>
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Avisos de batería y velocidad</li>
         </ul>
-        <a class="btn btn-primary" href="#descargar">Elegir Familiar</a>
+        <a class="btn btn-primary" href="#plan-familiar">Elegir Familiar</a>
       </div>
 
       <div class="plan">
@@ -322,7 +362,7 @@
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> SOS con prioridad y llamada</li>
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Soporte preferente</li>
         </ul>
-        <a class="btn btn-ghost" href="#descargar">Elegir Pro</a>
+        <a class="btn btn-ghost" href="#plan-pro">Elegir Pro</a>
       </div>
     </div>
     <p class="note">Precios en pesos mexicanos. Google aplica su comisión; el impuesto puede variar según tu país.</p>
@@ -357,6 +397,34 @@
   </div>
 </section>
 
+<div id="checkout" hidden aria-label="Contratar plan">
+  <div class="wrap">
+    <button class="back" id="ckBack" type="button">← Volver a planes</button>
+    <div class="ck-grid">
+      <div class="ck-main">
+        <span class="eyebrow" id="ckEyebrow">Plan</span>
+        <h2 id="ckTitle"></h2>
+        <p class="muted" id="ckSub"></p>
+        <form class="ck-form" id="ckForm" novalidate>
+          <label>Tu nombre<input id="f-name" autocomplete="name" required></label>
+          <label>Correo electrónico<input id="f-email" type="email" autocomplete="email" required></label>
+          <label>WhatsApp (opcional)<input id="f-phone" type="tel" autocomplete="tel"></label>
+          <label>¿Cuántos van a ser?<input id="f-size" type="number" min="1" value="5"></label>
+          <button class="btn btn-primary" type="submit">Continuar</button>
+          <p class="ck-legal">El pago se procesa de forma segura al instalar la app en Android. Sin cargos ocultos; cancelas cuando quieras.</p>
+        </form>
+        <div class="ck-done" id="ckDone" hidden></div>
+      </div>
+      <aside class="ck-summary">
+        <div class="ck-plan">Plan <span id="ckPlanName"></span></div>
+        <div class="price"><span class="amt" id="ckPrice"></span><span class="per" id="ckPer"></span></div>
+        <div class="price-note" id="ckNote"></div>
+        <ul id="ckFeatures"></ul>
+      </aside>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap foot">
     <div class="brand" style="font-size:1rem">
@@ -366,5 +434,41 @@
     <span>Hecho para cuidar a quienes quieres · Android</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>';
+  var PLANS = {
+    "plan-familiar": { name:"Familiar", eyebrow:"Plan Familiar", title:"Protege a toda tu familia", sub:"Hasta 10 personas, con todas las funciones activas.", price:"$79", per:"MXN / mes", note:"Precio de lanzamiento los primeros 3 meses. Después $99 MXN/mes.", features:["Hasta 10 miembros","Zonas seguras ilimitadas","Avísame cuando llegue","Avisos de batería y velocidad","Botón SOS y recorrido del día"] },
+    "plan-pro": { name:"Pro", eyebrow:"Plan Pro", title:"Para familias grandes", sub:"Hasta 20 personas y más historial.", price:"$199", per:"MXN / mes", note:"Precio directo, sin letra chica.", features:["Hasta 20 miembros","Historial de 30 días","SOS con prioridad y llamada","Soporte preferente","Todo lo del plan Familiar"] }
+  };
+  function $(id){ return document.getElementById(id); }
+  function fill(p){
+    $("ckEyebrow").textContent=p.eyebrow; $("ckTitle").textContent=p.title; $("ckSub").textContent=p.sub;
+    $("ckPlanName").textContent=p.name; $("ckPrice").textContent=p.price; $("ckPer").textContent=p.per; $("ckNote").textContent=p.note;
+    var ul=$("ckFeatures"); ul.innerHTML="";
+    p.features.forEach(function(f){ var li=document.createElement("li"); li.innerHTML=CHECK+"<span></span>"; li.querySelector("span").textContent=f; ul.appendChild(li); });
+    $("ckForm").hidden=false; $("ckDone").hidden=true;
+  }
+  function route(){
+    var h=(location.hash||"").replace("#",""); var co=$("checkout"); var p=PLANS[h];
+    if(p){ fill(p); co.hidden=false; document.body.style.overflow="hidden"; co.scrollTop=0; }
+    else { co.hidden=true; document.body.style.overflow=""; }
+  }
+  window.addEventListener("hashchange", route);
+  $("ckBack").addEventListener("click", function(){ location.hash="planes"; });
+  $("ckForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var name=($("f-name").value||"").trim(), email=($("f-email").value||"").trim();
+    if(!name||!email){ return; }
+    $("ckForm").hidden=true;
+    var d=$("ckDone"); d.hidden=false; d.innerHTML="";
+    var h3=document.createElement("h3"); h3.textContent="¡Gracias, "+name+"!";
+    var p=document.createElement("p"); p.textContent="Te escribiremos a "+email+" para darte acceso. Mientras, descarga la app, crea tu grupo y elige este plan desde la app.";
+    d.appendChild(h3); d.appendChild(p);
+  });
+  route();
+})();
+</script>
 </body>
 </html>

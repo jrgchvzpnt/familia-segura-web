@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jrgchvzpnt.github.io/familia-segura-web/sitemap.xml

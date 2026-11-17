@@ -1,266 +1,248 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Familia Segura: un mapa privado para ver dónde está tu familia en tiempo real, con botón SOS, zonas seguras y avisos de llegada.">
-<title>Familia Segura — Localizador familiar</title>
+<title>Familia Segura | Mapa familiar con SOS y avisos de llegada</title>
+<meta name="description" content="Mapa privado para ver en tiempo real dónde está tu familia. Botón SOS, zonas seguras y avisos cuando llegan a casa. Beta gratis para Android.">
+<meta name="theme-color" content="#07090d">
+<link rel="canonical" href="https://jrgchvzpnt.github.io/familia-segura-web/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%233d7dff'/%3E%3Cpath fill='white' d='M12 4C9.2 4 7 6.2 7 9c0 3.8 5 9 5 9s5-5.2 5-9c0-2.8-2.2-5-5-5zm0 6.8a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6z'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Familia Segura">
+<meta property="og:title" content="Sabe que los tuyos llegaron bien">
+<meta property="og:description" content="Mapa privado para tu familia: ubicación en vivo, botón SOS y avisos de llegada. Beta gratis para Android.">
+<meta property="og:url" content="https://jrgchvzpnt.github.io/familia-segura-web/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Familia Segura">
+<meta name="twitter:description" content="Mapa privado para tu familia: ubicación en vivo, botón SOS y avisos de llegada.">
 <style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap">
 <style>
-  /* Dark SaaS: negro profundo, superficies elevadas con borde sutil, acento azul eléctrico + verde seguro */
+  /* Dark SaaS sobrio: negro azulado, superficies con borde fino, un solo acento azul y verde solo para "seguro" */
   :root {
-    --bg: #07080b;
-    --bg-2: #0b0d12;
-    --surface: #10131a;
-    --surface-2: #161a23;
-    --line: #20252f;
-    --line-2: #2b323f;
-    --fg: #f4f6fb;
-    --muted: #93a0b4;
-    --faint: #5f6b7d;
+    --bg: #07090d;
+    --bg-2: #0b0e14;
+    --surface: #10141c;
+    --surface-2: #171c26;
+    --line: #202632;
+    --line-2: #2c3443;
+    --fg: #f3f5fa;
+    --muted: #97a3b6;
+    --faint: #667285;
     --brand: #3d7dff;
-    --brand-2: #5ad1ff;
+    --brand-2: #6ab6ff;
     --good: #3ddc84;
     --sos: #ff4d4d;
-    --glass: rgba(255,255,255,.03);
-    --font-head: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-head: "Sora", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  h1,h2,h3 { font-family: var(--font-head); margin: 0; line-height: 1.08; letter-spacing: -.02em; text-wrap: balance; }
-  p { margin: 0; }
-  a { color: inherit; text-decoration: none; }
-  ::selection { background: color-mix(in srgb, var(--brand) 40%, transparent); }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-body); line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,h3 { font-family:var(--font-head); margin:0; line-height:1.12; letter-spacing:-.02em; text-wrap:balance; }
+  p { margin:0; }
+  a { color:inherit; text-decoration:none; }
+  :focus-visible { outline:2px solid var(--brand-2); outline-offset:3px; border-radius:6px; }
+  ::selection { background:color-mix(in srgb, var(--brand) 40%, transparent); }
+  .wrap { max-width:1120px; margin:0 auto; padding-left:max(20px, env(safe-area-inset-left,0px)); padding-right:max(20px, env(safe-area-inset-right,0px)); }
+  .kicker { color:var(--brand-2); font-weight:600; font-size:.95rem; }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)); }
-  .grad { background: linear-gradient(100deg, var(--brand-2), var(--brand)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color: var(--brand-2); }
-  .eyebrow::before { content:""; width:7px; height:7px; border-radius:50%; background: var(--good); box-shadow: 0 0 10px var(--good); }
-
-  /* Header */
-  header { position: sticky; top: env(safe-area-inset-top,0px); z-index: 30; background: color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-  body::before { content:""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top,0px); background: var(--bg); z-index: 31; }
-  .nav { display:flex; align-items:center; justify-content:space-between; padding-block: 15px; gap: 12px; }
-  .brand { display:flex; align-items:center; gap:10px; font-family: var(--font-head); font-weight:700; font-size:1.08rem; }
-  .logo { width:30px; height:30px; flex:none; border-radius:9px; background: linear-gradient(140deg, var(--brand), #1f4fb0); display:grid; place-items:center; box-shadow: 0 6px 18px rgba(61,125,255,.35); }
+  header { position:sticky; top:env(safe-area-inset-top,0px); z-index:30; background:color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+  body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); background:var(--bg); z-index:31; }
+  .nav { display:flex; align-items:center; justify-content:space-between; padding-block:14px; gap:14px; }
+  .brand { display:flex; align-items:center; gap:10px; font-family:var(--font-head); font-weight:700; font-size:1.06rem; }
+  .logo { width:30px; height:30px; flex:none; border-radius:9px; background:linear-gradient(140deg, var(--brand), #1f4fb0); display:grid; place-items:center; box-shadow:0 6px 18px rgba(61,125,255,.35); }
   .logo svg { width:18px; height:18px; }
-  .nav-cta { font-family: var(--font-head); font-weight:600; font-size:.9rem; border:1px solid var(--line-2); border-radius:999px; padding:9px 18px; color: var(--fg); transition: border-color .2s; }
-  .nav-cta:hover { border-color: var(--brand); }
+  .nav-links { display:flex; gap:28px; font-size:.93rem; font-weight:500; color:var(--muted); }
+  .nav-links a:hover { color:var(--fg); }
+  .nav-cta { font-family:var(--font-head); font-weight:600; font-size:.88rem; border:1px solid var(--line-2); border-radius:999px; padding:9px 18px; }
+  .nav-cta:hover { border-color:var(--brand); }
 
-  /* Hero */
-  .hero-wrap { position: relative; }
-  .hero-glow { position:absolute; inset:-10% -20% auto; height:620px; background: radial-gradient(60% 60% at 50% 0%, rgba(61,125,255,.22), transparent 70%); pointer-events:none; z-index:0; }
-  .hero { position: relative; z-index:1; display:grid; grid-template-columns: 1.08fr .92fr; gap:48px; align-items:center; padding-block: 72px 56px; }
-  .hero h1 { font-size: clamp(2.3rem, 5.6vw, 3.7rem); }
-  .hero .lead { color: var(--muted); font-size: 1.14rem; margin-top: 20px; max-width: 46ch; }
-  .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top: 30px; }
-  .btn { font-family: var(--font-head); font-weight:600; font-size:1rem; border-radius:12px; padding:14px 24px; cursor:pointer; border:1px solid transparent; display:inline-flex; align-items:center; gap:9px; transition: transform .15s, box-shadow .2s, border-color .2s; }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: linear-gradient(135deg, var(--brand), #1f4fb0); color:#fff; box-shadow: 0 10px 30px rgba(61,125,255,.4); }
-  .btn-ghost { background: var(--glass); color: var(--fg); border-color: var(--line-2); }
-  .btn-ghost:hover { border-color: var(--brand); }
-  .trust { display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:28px; color: var(--muted); font-size:.9rem; }
-  .trust span { display:inline-flex; align-items:center; gap:7px; }
-  .trust svg { width:15px; height:15px; color: var(--good); }
+  .hero-wrap { position:relative; }
+  .hero-glow { position:absolute; inset:-10% -20% auto; height:600px; background:radial-gradient(60% 60% at 50% 0%, rgba(61,125,255,.2), transparent 70%); pointer-events:none; }
+  .hero { position:relative; display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; padding-block:72px 60px; }
+  .beta { display:inline-flex; align-items:center; gap:8px; font-size:.86rem; color:var(--muted); border:1px solid var(--line-2); border-radius:999px; padding:6px 14px; }
+  .beta i { width:7px; height:7px; border-radius:50%; background:var(--good); box-shadow:0 0 10px var(--good); }
+  .hero h1 { font-size:clamp(2.3rem,5.4vw,3.6rem); margin-top:20px; }
+  .lead { color:var(--muted); font-size:1.14rem; margin-top:20px; max-width:48ch; }
+  .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+  .btn { font-family:var(--font-head); font-weight:600; font-size:.98rem; border-radius:12px; padding:14px 24px; cursor:pointer; border:1px solid transparent; display:inline-flex; align-items:center; justify-content:center; gap:9px; transition:transform .15s, border-color .2s; }
+  .btn:hover { transform:translateY(-1px); }
+  .btn-primary { background:linear-gradient(135deg, var(--brand), #1f4fb0); color:#fff; box-shadow:0 10px 30px rgba(61,125,255,.38); }
+  .btn-ghost { background:rgba(255,255,255,.03); color:var(--fg); border-color:var(--line-2); }
+  .btn-ghost:hover { border-color:var(--brand); }
+  .micro { color:var(--faint); font-size:.88rem; margin-top:14px; }
 
-  /* Phone */
   .phone { justify-self:center; width:min(290px,78vw); max-width:100%; }
-  .phone-frame { background: linear-gradient(160deg, #181c25, #0c0e14); border:1px solid var(--line-2); border-radius:38px; padding:12px; box-shadow: 0 40px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.05); }
+  .phone-frame { background:linear-gradient(160deg,#181c25,#0c0e14); border:1px solid var(--line-2); border-radius:38px; padding:12px; box-shadow:0 40px 80px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.05); }
   .phone-screen { border-radius:27px; overflow:hidden; background:#0c1016; aspect-ratio:9/18.5; position:relative; }
-  .sos-badge { position:absolute; top:34px; right:14px; width:52px; height:52px; border-radius:50%; background: var(--sos); color:#fff; display:grid; place-items:center; font-family:var(--font-head); font-weight:700; font-size:.95rem; box-shadow:0 8px 24px rgba(255,77,77,.55); z-index:2; }
-  .ph-status { position:absolute; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:9px 16px 4px; font-family:var(--font-head); font-weight:600; font-size:.66rem; color:#e6ecf5; z-index:3; }
-  .ph-status .ph-icons { display:inline-flex; align-items:center; gap:5px; }
+  .sos-badge { position:absolute; top:34px; right:14px; width:52px; height:52px; border-radius:50%; background:var(--sos); color:#fff; display:grid; place-items:center; font-family:var(--font-head); font-weight:700; font-size:.92rem; box-shadow:0 8px 24px rgba(255,77,77,.55); z-index:2; }
+  .ph-status { position:absolute; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:9px 16px 4px; font-family:var(--font-head); font-weight:600; font-size:.64rem; color:#e6ecf5; z-index:3; }
   .ph-status svg { width:13px; height:13px; display:block; }
+  .ph-icons { display:inline-flex; align-items:center; gap:5px; }
+  .mini-card { position:absolute; left:10px; right:10px; bottom:56px; display:flex; align-items:center; gap:11px; background:rgba(13,17,24,.94); backdrop-filter:blur(8px); border:1px solid var(--line-2); border-radius:16px; padding:10px 12px; z-index:2; }
+  .mini-av { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:var(--font-head); font-weight:700; font-size:.9rem; flex:none; }
+  .mini-info { display:flex; flex-direction:column; min-width:0; }
+  .mini-info b { font-family:var(--font-head); font-size:.9rem; }
+  .mini-info span { color:var(--muted); font-size:.72rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mini-ping { margin-left:auto; color:var(--good); font-size:.64rem; font-weight:600; white-space:nowrap; }
   .ph-nav { position:absolute; left:0; right:0; bottom:0; display:flex; justify-content:space-around; align-items:center; padding:9px 4px 11px; background:rgba(9,12,17,.96); border-top:1px solid var(--line); z-index:2; }
   .ph-nav .it { display:flex; flex-direction:column; align-items:center; gap:3px; font-size:.52rem; color:var(--faint); }
   .ph-nav .it svg { width:16px; height:16px; }
   .ph-nav .it.on { color:var(--brand-2); }
-  .avatars { position:absolute; left:0; right:0; bottom:0; background: rgba(12,16,22,.82); backdrop-filter: blur(6px); border-top:1px solid var(--line); display:flex; justify-content:center; gap:10px; padding:14px 8px; }
-  .av { width:40px; height:40px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:var(--font-head); font-weight:700; font-size:.95rem; }
 
-  /* Logos / proof strip */
-  .strip { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background: var(--bg-2); }
-  .strip .wrap { display:flex; flex-wrap:wrap; gap:14px 34px; justify-content:center; padding-block:20px; color: var(--faint); font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; }
-  .strip b { color: var(--muted); font-family: var(--font-head); }
+  section { padding-block:76px; position:relative; }
+  .band { background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .sec-head { max-width:58ch; margin-bottom:40px; }
+  .sec-head h2 { font-size:clamp(1.8rem,4vw,2.6rem); margin-top:10px; }
+  .sec-head p { color:var(--muted); margin-top:14px; font-size:1.06rem; }
 
-  section { padding-block: 72px; position: relative; }
-  .sec-head { max-width: 58ch; margin-bottom: 40px; }
-  .sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: 12px; }
-  .sec-head p { color: var(--muted); margin-top: 14px; font-size: 1.06rem; }
+  .features { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .card { background:linear-gradient(180deg,var(--surface),var(--bg-2)); border:1px solid var(--line); border-radius:18px; padding:26px; min-width:0; }
+  .ic { width:46px; height:46px; border-radius:13px; display:grid; place-items:center; background:color-mix(in srgb, var(--brand) 14%, transparent); border:1px solid color-mix(in srgb, var(--brand) 30%, transparent); margin-bottom:16px; }
+  .ic svg { width:22px; height:22px; color:var(--brand-2); }
+  .ic.red { background:color-mix(in srgb, var(--sos) 14%, transparent); border-color:color-mix(in srgb, var(--sos) 32%, transparent); }
+  .ic.red svg { color:var(--sos); }
+  .ic.green { background:color-mix(in srgb, var(--good) 13%, transparent); border-color:color-mix(in srgb, var(--good) 30%, transparent); }
+  .ic.green svg { color:var(--good); }
+  .card h3 { font-size:1.12rem; }
+  .card p { color:var(--muted); font-size:.97rem; margin-top:8px; }
 
-  /* Features */
-  .features { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; }
-  .card { background: linear-gradient(180deg, var(--surface), var(--bg-2)); border:1px solid var(--line); border-radius:18px; padding:26px; min-width:0; transition: border-color .2s, transform .2s; }
-  .card:hover { border-color: var(--line-2); transform: translateY(-3px); }
-  .ic { width:46px; height:46px; border-radius:13px; display:grid; place-items:center; background: color-mix(in srgb, var(--brand) 14%, transparent); border:1px solid color-mix(in srgb, var(--brand) 30%, transparent); margin-bottom:16px; }
-  .ic svg { width:22px; height:22px; color: var(--brand-2); }
-  .ic.red { background: color-mix(in srgb, var(--sos) 14%, transparent); border-color: color-mix(in srgb, var(--sos) 32%, transparent); }
-  .ic.red svg { color: var(--sos); }
-  .ic.green { background: color-mix(in srgb, var(--good) 13%, transparent); border-color: color-mix(in srgb, var(--good) 30%, transparent); }
-  .ic.green svg { color: var(--good); }
-  .card h3 { font-size: 1.14rem; }
-  .card p { color: var(--muted); font-size: .97rem; margin-top:8px; }
-
-  /* Steps */
-  .steps { display:grid; grid-template-columns: repeat(3,1fr); gap:22px; }
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   .step { padding-top:22px; border-top:1px solid var(--line-2); }
-  .step .n { font-family:var(--font-head); font-weight:700; font-size:1rem; color: var(--brand-2); letter-spacing:.04em; }
-  .step h3 { font-size:1.18rem; margin-top:10px; }
-  .step p { color: var(--muted); margin-top:8px; font-size:.98rem; }
+  .step .n { font-family:var(--font-head); font-weight:700; color:var(--brand-2); font-size:1.5rem; }
+  .step h3 { font-size:1.16rem; margin-top:8px; }
+  .step p { color:var(--muted); margin-top:8px; font-size:.98rem; }
 
-  /* Pricing */
-  .plans { display:grid; grid-template-columns: repeat(3,1fr); gap:20px; align-items:stretch; }
-  .plan { background: var(--surface); border:1px solid var(--line); border-radius:20px; padding:28px; display:flex; flex-direction:column; min-width:0; }
-  .plan.featured { border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 9%, var(--surface)), var(--surface)); box-shadow: 0 24px 60px rgba(61,125,255,.18); position:relative; }
-  .plan.featured::before { content:"Más elegido"; position:absolute; top:-12px; left:28px; background: linear-gradient(135deg, var(--brand), #1f4fb0); color:#fff; font-family:var(--font-head); font-weight:600; font-size:.72rem; letter-spacing:.04em; padding:5px 13px; border-radius:999px; box-shadow:0 6px 16px rgba(61,125,255,.4); }
+  .story { max-width:68ch; }
+  .story p { color:var(--muted); font-size:1.12rem; margin-top:16px; }
+  .story h2 { font-size:clamp(1.7rem,3.8vw,2.4rem); }
+
+  .included { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px 26px; margin-bottom:22px; }
+  .included h3 { font-size:1.05rem; }
+  .included ul { list-style:none; padding:0; margin:14px 0 0; display:grid; grid-template-columns:repeat(2,1fr); gap:10px 28px; }
+  .included li, .plan li { display:flex; gap:10px; align-items:flex-start; font-size:.96rem; }
+  .check { color:var(--good); flex:none; margin-top:4px; }
+  .check svg { width:15px; height:15px; display:block; }
+  .plans { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+  .plan { background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:28px; display:flex; flex-direction:column; min-width:0; }
+  .plan.featured { border-color:color-mix(in srgb, var(--brand) 55%, var(--line)); background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 9%, var(--surface)), var(--surface)); box-shadow:0 24px 60px rgba(61,125,255,.16); position:relative; }
+  .plan.featured::before { content:"Más elegido"; position:absolute; top:-12px; left:28px; background:linear-gradient(135deg,var(--brand),#1f4fb0); color:#fff; font-family:var(--font-head); font-weight:600; font-size:.74rem; padding:5px 13px; border-radius:999px; }
   .plan .name { font-family:var(--font-head); font-weight:700; font-size:1.22rem; }
-  .plan .who { color: var(--muted); font-size:.9rem; margin-top:5px; }
-  .launch-tag { align-self:flex-start; background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); border:1px solid color-mix(in srgb, var(--good) 35%, transparent); font-family:var(--font-head); font-weight:600; font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; padding:5px 11px; border-radius:999px; margin:16px 0 4px; }
+  .plan .who { color:var(--muted); font-size:.92rem; margin-top:5px; }
+  .launch-tag { align-self:flex-start; background:color-mix(in srgb, var(--good) 15%, transparent); color:var(--good); border:1px solid color-mix(in srgb, var(--good) 35%, transparent); font-family:var(--font-head); font-weight:600; font-size:.76rem; padding:5px 11px; border-radius:999px; margin:16px 0 4px; }
   .price { display:flex; align-items:baseline; gap:7px; margin:14px 0 2px; }
   .price .amt { font-family:var(--font-head); font-weight:700; font-size:2.5rem; }
-  .price .per { color: var(--muted); font-size:.9rem; }
-  .price-note { color: var(--muted); font-size:.87rem; }
-  .price-note b { color: var(--fg); font-family: var(--font-head); font-weight:600; }
+  .price .per { color:var(--muted); font-size:.92rem; }
+  .price-note { color:var(--muted); font-size:.88rem; min-height:1.4em; }
+  .price-note b { color:var(--fg); font-weight:600; }
   .plan ul { list-style:none; padding:0; margin:20px 0 24px; display:grid; gap:11px; }
-  .plan li { display:flex; gap:10px; align-items:flex-start; font-size:.96rem; color: var(--fg); }
-  .check { color: var(--good); flex:none; margin-top:3px; }
-  .check svg { width:15px; height:15px; display:block; }
-  .plan .btn { margin-top:auto; justify-content:center; }
-  .note { color: var(--faint); font-size:.85rem; margin-top:20px; text-align:center; }
+  .plan .btn { margin-top:auto; }
+  .note { color:var(--faint); font-size:.88rem; margin-top:20px; text-align:center; }
 
-  /* Privacy */
-  .privacy { display:grid; grid-template-columns: 1fr 1fr; gap:34px; align-items:center; }
-  .privacy h2 { font-size: clamp(1.7rem,3.6vw,2.3rem); }
-  .privacy > div > p { color: var(--muted); margin-top:14px; }
-  .panel { background: linear-gradient(180deg, var(--surface), var(--bg-2)); border:1px solid var(--line); border-radius:20px; padding:28px; }
+  .privacy { display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center; }
+  .privacy h2 { font-size:clamp(1.7rem,3.6vw,2.3rem); }
+  .privacy .txt { color:var(--muted); margin-top:14px; }
+  .panel { background:linear-gradient(180deg,var(--surface),var(--bg-2)); border:1px solid var(--line); border-radius:20px; padding:28px; }
   .panel ul { list-style:none; padding:0; margin:0; display:grid; gap:14px; }
   .panel li { display:flex; gap:12px; align-items:flex-start; }
-  .panel li svg { width:19px; height:19px; flex:none; margin-top:2px; color: var(--brand-2); }
+  .panel li svg { width:19px; height:19px; flex:none; margin-top:3px; color:var(--brand-2); }
 
-  /* CTA band */
-  .final { text-align:center; }
-  .final .box { background: linear-gradient(135deg, color-mix(in srgb, var(--brand) 16%, var(--surface)), var(--surface)); border:1px solid var(--line-2); border-radius:26px; padding: clamp(36px, 6vw, 64px); position:relative; overflow:hidden; }
-  .final .box::after { content:""; position:absolute; inset:auto -10% -60% ; height:300px; background: radial-gradient(50% 60% at 50% 100%, rgba(61,125,255,.25), transparent 70%); }
-  .final h2 { font-size: clamp(1.9rem,4.4vw,2.8rem); position:relative; z-index:1; }
-  .final p { color: var(--muted); margin-top:14px; position:relative; z-index:1; }
-  .final .cta-row { justify-content:center; position:relative; z-index:1; }
+  .faq { max-width:760px; }
+  details { border-bottom:1px solid var(--line); }
+  summary { cursor:pointer; list-style:none; padding:20px 4px; font-family:var(--font-head); font-weight:600; font-size:1.05rem; display:flex; justify-content:space-between; gap:16px; align-items:center; }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:"+"; color:var(--brand-2); font-size:1.5rem; line-height:1; flex:none; }
+  details[open] summary::after { content:"−"; }
+  details p { color:var(--muted); padding:0 4px 22px; max-width:62ch; }
 
-  footer { border-top:1px solid var(--line); padding-block:34px; color: var(--muted); font-size:.9rem; }
-  .foot { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; align-items:center; }
+  .final .box { text-align:center; background:linear-gradient(135deg, color-mix(in srgb, var(--brand) 15%, var(--surface)), var(--surface)); border:1px solid var(--line-2); border-radius:26px; padding:clamp(36px,6vw,64px); }
+  .final h2 { font-size:clamp(1.9rem,4.4vw,2.8rem); }
+  .final p { color:var(--muted); margin-top:14px; }
+  .final .cta-row { justify-content:center; }
 
-  /* Header nav + hero microcopy */
-  .nav-links { display:flex; gap:28px; font-size:.92rem; font-weight:500; color:var(--muted); }
-  .nav-links a { transition: color .2s; }
-  .nav-links a:hover { color:var(--fg); }
-  .micro { color:var(--faint); font-size:.84rem; margin-top:13px; }
-
-  /* Footer */
-  .foot-top { display:grid; grid-template-columns:2.2fr 1fr 1.2fr 1fr; gap:30px; padding-block:12px 32px; }
-  .foot-brand p { color:var(--muted); font-size:.92rem; margin-top:14px; max-width:36ch; }
-  .badge-android { display:inline-flex; align-items:center; gap:8px; margin-top:16px; font-size:.82rem; color:var(--muted); border:1px solid var(--line-2); border-radius:999px; padding:7px 14px; }
-  .foot-col h4 { font-family:var(--font-head); font-size:.8rem; letter-spacing:.07em; text-transform:uppercase; color:var(--faint); margin:0 0 14px; font-weight:600; }
-  .foot-col a, .foot-contact { display:block; color:var(--muted); font-size:.93rem; padding:5px 0; transition: color .2s; }
+  footer { border-top:1px solid var(--line); padding-block:44px 30px; color:var(--muted); font-size:.93rem; }
+  .foot-top { display:grid; grid-template-columns:2.2fr 1fr 1fr 1fr; gap:30px; padding-bottom:30px; }
+  .foot-brand p { margin-top:14px; max-width:38ch; }
+  .foot-col h4 { font-family:var(--font-head); font-size:.9rem; color:var(--fg); margin:0 0 12px; font-weight:600; }
+  .foot-col a { display:block; padding:5px 0; }
   .foot-col a:hover { color:var(--fg); }
-  .foot-contact { user-select:text; }
-  .foot-bottom { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; border-top:1px solid var(--line); padding-top:22px; color:var(--faint); font-size:.85rem; }
-  @media (max-width:760px){ .foot-top{ grid-template-columns:1fr 1fr; } }
-  @media (max-width:720px){ .nav-links{ display:none; } }
-  @media (max-width:460px){ .foot-top{ grid-template-columns:1fr; gap:22px; } }
+  .foot-bottom { border-top:1px solid var(--line); padding-top:20px; color:var(--faint); font-size:.86rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; }
 
-  /* Tarjeta del mapa (teléfono) */
-  .mini-card { position:absolute; left:10px; right:10px; bottom:56px; display:flex; align-items:center; gap:11px; background: rgba(13,17,24,.94); backdrop-filter: blur(8px); border:1px solid var(--line-2); border-radius:16px; padding:10px 12px; z-index:2; }
-  .mini-av { width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:var(--font-head); font-weight:700; font-size:.9rem; flex:none; }
-  .mini-info { display:flex; flex-direction:column; min-width:0; }
-  .mini-info b { font-family:var(--font-head); font-size:.92rem; }
-  .mini-info span { color:var(--muted); font-size:.72rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .mini-ping { margin-left:auto; color:var(--good); font-size:.64rem; font-weight:600; white-space:nowrap; }
-
-  /* Página de contratación */
   #checkout { position:fixed; inset:0; z-index:60; background:var(--bg); overflow-y:auto; }
   #checkout .wrap { padding-block:26px 64px; }
-  .back { background:var(--glass); border:1px solid var(--line-2); color:var(--fg); font-family:var(--font-head); font-weight:600; font-size:.9rem; border-radius:999px; padding:9px 16px; cursor:pointer; transition:border-color .2s; }
+  .back { background:rgba(255,255,255,.03); border:1px solid var(--line-2); color:var(--fg); font-family:var(--font-head); font-weight:600; font-size:.9rem; border-radius:999px; padding:9px 16px; cursor:pointer; }
   .back:hover { border-color:var(--brand); }
   .ck-grid { display:grid; grid-template-columns:1.3fr .9fr; gap:28px; margin-top:24px; align-items:start; }
   .ck-main h2 { font-size:clamp(1.7rem,4vw,2.4rem); margin-top:10px; }
   .ck-main .muted { color:var(--muted); margin-top:10px; max-width:48ch; }
   .ck-form { display:grid; gap:14px; margin-top:26px; max-width:460px; }
-  .ck-form label { display:grid; gap:6px; font-size:.9rem; color:var(--muted); font-weight:500; }
+  .ck-form label { display:grid; gap:6px; font-size:.92rem; color:var(--muted); font-weight:500; }
   .ck-form input { font-family:var(--font-body); font-size:1rem; padding:12px 14px; border:1px solid var(--line-2); border-radius:12px; background:var(--surface); color:var(--fg); }
-  .ck-form input:focus-visible { outline:2px solid var(--brand); outline-offset:1px; }
-  .ck-form .btn { margin-top:6px; }
-  .ck-legal { color:var(--faint); font-size:.82rem; margin-top:2px; }
-  .ck-done { margin-top:26px; background:linear-gradient(135deg, color-mix(in srgb, var(--good) 14%, var(--surface)), var(--surface)); border:1px solid color-mix(in srgb, var(--good) 34%, var(--line)); border-radius:18px; padding:26px; max-width:460px; }
-  .ck-done h3 { font-size:1.3rem; } .ck-done p { color:var(--muted); margin-top:8px; }
+  .ck-legal { color:var(--faint); font-size:.85rem; }
+  .ck-done { margin-top:26px; background:linear-gradient(135deg, color-mix(in srgb, var(--good) 13%, var(--surface)), var(--surface)); border:1px solid color-mix(in srgb, var(--good) 34%, var(--line)); border-radius:18px; padding:26px; max-width:460px; }
+  .ck-done h3 { font-size:1.3rem; } .ck-done p { color:var(--muted); margin-top:8px; } .ck-done .btn { margin-top:16px; }
   .ck-summary { background:var(--surface); border:1px solid var(--line-2); border-radius:20px; padding:26px; position:sticky; top:24px; }
   .ck-plan { font-family:var(--font-head); font-weight:700; font-size:1.2rem; }
-  .ck-summary .price { margin:14px 0 2px; }
   .ck-summary ul { list-style:none; padding:0; margin:18px 0 0; display:grid; gap:11px; }
   .ck-summary li { display:flex; gap:10px; align-items:flex-start; font-size:.94rem; }
-  .ck-summary li svg { width:15px; height:15px; color:var(--good); flex:none; margin-top:3px; }
-  @media (max-width:760px){ .ck-grid{ grid-template-columns:1fr; } .ck-summary{ position:static; order:-1; } }
+  .ck-summary li svg { width:15px; height:15px; color:var(--good); flex:none; margin-top:4px; }
 
-  @media (max-width: 880px) {
+  @media (max-width:880px) {
     .hero { grid-template-columns:1fr; gap:36px; text-align:center; padding-block:48px; }
-    .hero .lead { margin-inline:auto; }
-    .cta-row, .trust { justify-content:center; }
+    .lead { margin-inline:auto; }
+    .cta-row { justify-content:center; }
     .features, .steps, .plans { grid-template-columns:1fr; }
     .privacy { grid-template-columns:1fr; }
+    .included ul { grid-template-columns:1fr; }
     .phone { order:-1; }
+    .foot-top { grid-template-columns:1fr 1fr; }
+    .ck-grid { grid-template-columns:1fr; } .ck-summary { position:static; order:-1; }
   }
-  @media (max-width: 560px) {
-    section { padding-block: 48px; }
-    .hero { padding-block: 32px 40px; }
-    .sec-head { margin-bottom: 26px; }
-    .card, .plan, .panel, .ck-summary { padding: 20px; }
-    .btn { width: 100%; justify-content: center; }
-    .cta-row { width: 100%; }
-    .trust { font-size: .86rem; }
-    .final .box { padding: 32px 20px; }
+  @media (max-width:720px) { .nav-links { display:none; } }
+  @media (max-width:560px) {
+    section { padding-block:48px; } .hero { padding-block:32px 40px; } .sec-head { margin-bottom:26px; }
+    .card, .plan, .panel, .included, .ck-summary { padding:20px; }
+    .btn { width:100%; } .cta-row { width:100%; }
+    .final .box { padding:32px 20px; } .foot-top { grid-template-columns:1fr; gap:22px; }
   }
+  @media (prefers-reduced-motion:reduce) { .btn { transition:none; } .btn:hover { transform:none; } }
 </style>
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top">
+    <a class="brand" href="#top" aria-label="Familia Segura, inicio">
       <span class="logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
       Familia Segura
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Principal">
       <a href="#funciones">Funciones</a>
       <a href="#como">Cómo funciona</a>
       <a href="#planes">Planes</a>
+      <a href="#preguntas">Preguntas</a>
     </nav>
-    <a class="nav-cta" href="#planes">Empezar gratis</a>
+    <a class="nav-cta" href="#beta">Unirme a la beta</a>
   </div>
 </header>
 
+<main>
 <div class="hero-wrap" id="top">
   <div class="hero-glow"></div>
   <div class="wrap">
-    <section class="hero">
+    <div class="hero">
       <div>
-        <span class="eyebrow">Ubicación en tiempo real</span>
-        <h1>Saber dónde anda tu familia, <span class="grad">siempre.</span></h1>
-        <p class="lead">Un mapa privado para tu familia: ves a cada quien en vivo, recibes un SOS al instante y te enteras cuando llegan a casa. Tranquilidad para la ciudad de hoy.</p>
+        <span class="beta"><i></i> Beta abierta en Android</span>
+        <h1>Sabe que los tuyos llegaron bien.</h1>
+        <p class="lead">Familia Segura muestra en un mapa privado dónde está cada integrante de tu familia, te avisa cuando alguien llega a casa y manda una alerta con su ubicación a todos con un solo botón.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#planes">Empezar gratis</a>
-          <a class="btn btn-ghost" href="#como">Cómo funciona</a>
+          <a class="btn btn-primary" href="#beta">Unirme a la beta gratis</a>
+          <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
         </div>
-        <p class="micro">Gratis para empezar · Sin tarjeta · Cancela cuando quieras</p>
-        <div class="trust">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Privado, solo tu familia</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Entra con Google</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg> Android</span>
-        </div>
+        <p class="micro">Gratis durante la beta. Entra con tu cuenta de Google o con tu correo.</p>
       </div>
       <div class="phone" aria-hidden="true">
         <div class="phone-frame">
@@ -269,18 +251,18 @@
               <defs><filter id="ps" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity=".55"/></filter></defs>
               <rect width="300" height="620" fill="#0b0f16"/>
               <rect x="162" y="48" width="160" height="120" rx="16" fill="#132220"/>
-              <text x="206" y="150" fill="#33604e" font-family="Inter,sans-serif" font-size="11" text-anchor="middle">Parque</text>
+              <text x="206" y="150" fill="#33604e" font-family="DM Sans,sans-serif" font-size="11" text-anchor="middle">Parque</text>
               <path d="M-20 470 C 50 430 100 500 182 470 S 332 510 352 480 L352 640 L-20 640Z" fill="#0d1c2b"/>
               <path d="M-20 470 C 50 430 100 500 182 470 S 332 510 352 480" stroke="#17324a" stroke-width="2" fill="none"/>
               <g stroke="#19222e" stroke-width="5" stroke-linecap="round"><path d="M0 104 H300 M0 398 H300 M0 534 H300 M66 20 V620 M232 20 V620"/></g>
               <path d="M0 224 H150 V312 H300" stroke="#26323f" stroke-width="10" fill="none" stroke-linecap="round"/>
               <path d="M0 224 H150 V312 H300" stroke="#37465a" stroke-width="2" fill="none" stroke-dasharray="1 11" stroke-linecap="round"/>
               <circle cx="232" cy="224" r="4" fill="#5aa2f0"/>
-              <text x="232" y="214" fill="#5f6b7d" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">Súper</text>
+              <text x="232" y="214" fill="#667285" font-family="DM Sans,sans-serif" font-size="9" text-anchor="middle">Súper</text>
               <path d="M96 534 V466 H150 V312" stroke="#3d7dff" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".2"/>
               <path d="M96 534 V466 H150 V312" stroke="#3d7dff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <g filter="url(#ps)"><circle cx="66" cy="398" r="15" fill="#f2994a" stroke="#0b0f16" stroke-width="3"/><text x="66" y="403" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#2a1600">I</text></g>
-              <g filter="url(#ps)"><circle cx="252" cy="430" r="15" fill="#3ddc84" stroke="#0b0f16" stroke-width="3"/><text x="252" y="435" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="700" fill="#06130c">R</text></g>
+              <g filter="url(#ps)"><circle cx="66" cy="398" r="15" fill="#f2994a" stroke="#0b0f16" stroke-width="3"/><text x="66" y="403" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="700" fill="#2a1600">I</text></g>
+              <g filter="url(#ps)"><circle cx="252" cy="430" r="15" fill="#3ddc84" stroke="#0b0f16" stroke-width="3"/><text x="252" y="435" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="700" fill="#06130c">R</text></g>
               <circle cx="150" cy="312" r="46" fill="#3d7dff" opacity=".12"/>
               <circle cx="150" cy="312" r="46" fill="none" stroke="#3d7dff" stroke-width="1.5" opacity=".45"/>
               <g filter="url(#ps)"><path d="M150 278c-11 0-20 9-20 20 0 14 20 32 20 32s20-18 20-32c0-11-9-20-20-20z" fill="#d6409f" stroke="#fff" stroke-width="2.5"/><circle cx="150" cy="298" r="8" fill="#fff"/></g>
@@ -307,174 +289,173 @@
           </div>
         </div>
       </div>
-    </section>
-  </div>
-</div>
-
-<div class="strip">
-  <div class="wrap">
-    <span><b>SOS</b> al instante</span>
-    <span><b>Zonas</b> seguras</span>
-    <span><b>Recorrido</b> del día</span>
-    <span><b>Batería</b> y velocidad</span>
-    <span><b>Privado</b> de verdad</span>
+    </div>
   </div>
 </div>
 
 <section id="funciones">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Todo en una app</span>
-      <h2>Las herramientas para cuidarse entre todos</h2>
-      <p>Cada función pensada para la vida real: el camino de la escuela, el regreso del trabajo, el momento en que alguien necesita ayuda.</p>
+      <h2>Lo que necesitas para cuidarse entre todos</h2>
+      <p>Pensado para el camino a la escuela, el regreso del trabajo y el momento en que alguien necesita ayuda.</p>
     </div>
     <div class="features">
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3z"/><path d="M9 7v13M15 4v13"/></svg></div>
-        <h3>Mapa en vivo</h3><p>Ve a cada familiar en el mapa, con su color, hace cuánto se actualizó y su batería.</p>
-      </div>
-      <div class="card">
-        <div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg></div>
-        <h3>Botón SOS</h3><p>Avisa a toda la familia con tu ubicación y, por 15 minutos, la actualiza cada 15 segundos.</p>
-      </div>
-      <div class="card">
-        <div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></div>
-        <h3>Zonas seguras</h3><p>Casa, escuela, trabajo: un aviso cuando alguien llega o sale de un lugar importante.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-        <h3>Avísame al llegar</h3><p>Pide que te avisen cuando una persona llegue a un sitio, sin estar revisando el mapa.</p>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 6-8"/><path d="M3 21h18"/></svg></div>
-        <h3>Recorrido del día</h3><p>Mira por dónde anduvo cada quien hoy, o en días anteriores.</p>
-      </div>
-      <div class="card">
-        <div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></div>
-        <h3>Batería y velocidad</h3><p>Aviso si a alguien le queda poca batería o si va a alta velocidad en carretera.</p>
-      </div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3z"/><path d="M9 7v13M15 4v13"/></svg></div>
+        <h3>Mapa en vivo</h3><p>Cada familiar aparece con su color, la hora de su última actualización y su batería. Se actualiza solo, aunque la app esté cerrada.</p></div>
+      <div class="card"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg></div>
+        <h3>Botón SOS</h3><p>Manda una alerta a toda la familia con tu ubicación y, durante 15 minutos, la actualiza cada 15 segundos para que te encuentren.</p></div>
+      <div class="card"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Zonas seguras</h3><p>Marca casa, escuela o trabajo y recibe un aviso cuando alguien llega o sale. Si llegan a casa, te lo dice con esas palabras.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h3>Avísame al llegar</h3><p>Elige a una persona y un lugar. Cuando llegue, te avisamos una sola vez y no tienes que estar mirando el mapa.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 6-8"/><path d="M3 21h18"/></svg></div>
+        <h3>Recorrido y chat</h3><p>Revisa por dónde anduvo cada quien en los últimos 7 días y coordínense en el chat del grupo.</p></div>
+      <div class="card"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></div>
+        <h3>Batería y velocidad</h3><p>Te avisamos si a alguien le queda poca batería o si va a más de 110 km/h.</p></div>
     </div>
   </div>
 </section>
 
-<section id="como" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="como" class="band">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">En 3 pasos</span>
-      <h2>Listo en diez minutos</h2>
-    </div>
+    <div class="sec-head"><h2>Listo en diez minutos</h2></div>
     <div class="steps">
-      <div class="step"><div class="n">PASO 01</div><h3>Instala la app</h3><p>Cada familiar la instala en su Android y entra con Google o con su correo.</p></div>
-      <div class="step"><div class="n">PASO 02</div><h3>Comparte el código</h3><p>Tú creas el grupo y repartes un código de 6 letras. Cada quien se une con él.</p></div>
-      <div class="step"><div class="n">PASO 03</div><h3>Cuídense entre todos</h3><p>Ya se ven en el mapa. Activen "todo el tiempo" y la ubicación se comparte sola.</p></div>
+      <div class="step"><div class="n">1</div><h3>Instala la app</h3><p>Cada familiar la instala en su Android y entra con Google o con su correo.</p></div>
+      <div class="step"><div class="n">2</div><h3>Comparte el código</h3><p>Tú creas el grupo y compartes un código de 6 letras. Cada quien se une con él.</p></div>
+      <div class="step"><div class="n">3</div><h3>Déjenla en segundo plano</h3><p>Con la ubicación en "Permitir todo el tiempo", se comparte sola y todos se ven en el mapa.</p></div>
     </div>
   </div>
 </section>
 
-<section id="planes">
+<section>
+  <div class="wrap story">
+    <h2>Nació en casa</h2>
+    <p>Familia Segura empezó como una herramienta para nuestra propia familia: saber que los nuestros llegan bien en una ciudad donde eso preocupa. La construimos primero para nosotros y ahora la abrimos a otras familias que quieren lo mismo.</p>
+  </div>
+</section>
+
+<section id="planes" class="band">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Planes</span>
       <h2>Elige según el tamaño de tu familia</h2>
-      <p>Empieza gratis y crece cuando lo necesites. Cambia de plan cuando quieras.</p>
+      <p>Todos los planes tienen las mismas funciones. Lo único que cambia es cuántas personas caben en el grupo.</p>
     </div>
+
+    <div class="included">
+      <h3>Incluido en todos los planes</h3>
+      <ul>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Mapa en tiempo real</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Botón SOS</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Zonas seguras y avisos de llegada</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Recorrido de los últimos 7 días</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Chat familiar</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Avisos de batería baja y velocidad</li>
+      </ul>
+    </div>
+
     <div class="plans">
       <div class="plan">
         <div class="name">Gratis</div>
-        <div class="who">Para empezar · 1 a 2 personas</div>
-        <div class="price" style="margin-top:20px"><span class="amt">$0</span><span class="per">para siempre</span></div>
-        <ul>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Mapa en tiempo real</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Botón SOS</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> 1 zona segura</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Recorrido del día</li>
-        </ul>
-        <a class="btn btn-ghost" href="#descargar">Empezar</a>
+        <div class="who">Para probar o para dos personas</div>
+        <div class="price" style="margin-top:22px"><span class="amt">$0</span><span class="per">para siempre</span></div>
+        <div class="price-note">Hasta <b>2 personas</b></div>
+        <ul></ul>
+        <a class="btn btn-ghost" href="#beta">Unirme a la beta</a>
       </div>
 
       <div class="plan featured">
         <div class="name">Familiar</div>
-        <div class="who">La familia completa · 5 a 10 personas</div>
-        <span class="launch-tag">★ Precio de lanzamiento</span>
+        <div class="who">Para la mayoría de las familias</div>
+        <span class="launch-tag">Precio de lanzamiento</span>
         <div class="price"><span class="amt">$79</span><span class="per">MXN / mes</span></div>
         <div class="price-note">Los primeros <b>3 meses</b>. Después $99 MXN/mes.</div>
         <ul>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Todo lo del plan Gratis</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Hasta 10 miembros</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Zonas seguras ilimitadas</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Avísame cuando llegue</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Avisos de batería y velocidad</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Hasta <b>10 personas</b></li>
         </ul>
         <a class="btn btn-primary" href="#plan-familiar">Elegir Familiar</a>
       </div>
 
       <div class="plan">
         <div class="name">Pro</div>
-        <div class="who">Familia grande · hasta 20 personas</div>
-        <div class="price" style="margin-top:20px"><span class="amt">$199</span><span class="per">MXN / mes</span></div>
-        <div class="price-note">Para familias grandes, precio directo.</div>
+        <div class="who">Para familias grandes</div>
+        <div class="price" style="margin-top:22px"><span class="amt">$199</span><span class="per">MXN / mes</span></div>
+        <div class="price-note">Precio fijo.</div>
         <ul>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Todo lo del plan Familiar</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Hasta 20 miembros</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Historial de 30 días</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> SOS con prioridad y llamada</li>
-          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span> Soporte preferente</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Hasta <b>20 personas</b></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Atención prioritaria por WhatsApp</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Historial de 30 días (próximamente)</li>
         </ul>
         <a class="btn btn-ghost" href="#plan-pro">Elegir Pro</a>
       </div>
     </div>
-    <p class="note">Precios en pesos mexicanos. Google aplica su comisión; el impuesto puede variar según tu país.</p>
+    <p class="note">Precios en pesos mexicanos. Durante la beta puedes probar todo sin costo; los cobros empezarán cuando la app esté en Google Play.</p>
   </div>
 </section>
 
-<section id="privacidad" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="privacidad">
   <div class="wrap privacy">
     <div>
-      <span class="eyebrow">Privacidad</span>
-      <h2 style="margin-top:12px">Tu ubicación es solo de tu familia</h2>
-      <p>Familia Segura es transparente: cada persona instala la app sabiendo lo que hace y acepta compartir su ubicación. Mientras se comparte, siempre se ve una notificación. No es para espiar: es para cuidarse.</p>
+      <h2>Tu ubicación es solo de tu familia</h2>
+      <p class="txt">Cada persona instala la app sabiendo lo que hace y acepta compartir su ubicación. Mientras se comparte, Android muestra un aviso permanente en el teléfono. Solo los integrantes de tu grupo ven dónde estás.</p>
     </div>
     <div class="panel">
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Solo los miembros de tu grupo ven las ubicaciones.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg> Aviso visible siempre que se comparte.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="m4.9 4.9 14.2 14.2"/></svg> Sin anuncios y sin vender datos.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg> Sales del grupo y dejas de compartir al instante.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Las reglas de la base de datos limitan cada grupo a sus integrantes.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>El aviso del sistema se ve siempre que se comparte la ubicación.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="m4.9 4.9 14.2 14.2"/></svg>Sin anuncios. No vendemos datos.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg>Sales del grupo cuando quieras y dejas de compartir al instante.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section id="descargar" class="final">
+<section id="preguntas" class="band">
   <div class="wrap">
-    <div class="box">
-      <h2>Reúne a tu familia en un mapa</h2>
-      <p>Instala la app, comparte el código y empiecen a cuidarse hoy mismo.</p>
-      <div class="cta-row"><a class="btn btn-primary" href="#planes">Empezar gratis</a></div>
+    <div class="sec-head"><h2>Preguntas frecuentes</h2></div>
+    <div class="faq">
+      <details><summary>¿Funciona con la app cerrada?</summary><p>Sí. Con la ubicación en "Permitir todo el tiempo" y la batería en "Sin restricciones", la app sigue compartiendo en segundo plano. Algunos teléfonos (Xiaomi, Samsung, Motorola) pausan las apps para ahorrar batería; la app te lleva al ajuste para evitarlo.</p></details>
+      <details><summary>¿Gasta mucha batería?</summary><p>La app baja la frecuencia cuando estás quieto: actualiza cada 10 minutos en lugar de cada minuto y medio mientras te mueves.</p></details>
+      <details><summary>¿Quién puede ver mi ubicación?</summary><p>Solo los integrantes de tu grupo, y cada integrante ve a los demás del grupo. Nadie fuera del grupo tiene acceso.</p></details>
+      <details><summary>¿Puedo pausar el compartir?</summary><p>Mientras estás en el grupo, la ubicación se comparte siempre. Puedes salir del grupo cuando quieras y deja de compartirse al momento.</p></details>
+      <details><summary>¿El botón SOS llama a emergencias?</summary><p>El SOS avisa a tu familia con tu ubicación. No llama a servicios de emergencia. Si estás en peligro, llama también al 911.</p></details>
+      <details><summary>¿Necesito internet?</summary><p>Sí, datos móviles o WiFi. Sin conexión la ubicación no se actualiza, y al volver la señal se sincroniza.</p></details>
+      <details><summary>¿Funciona en iPhone?</summary><p>Por ahora solo en Android.</p></details>
+      <details><summary>¿Cuánto cuesta?</summary><p>Hasta 2 personas es gratis. Familiar (hasta 10) cuesta $79 al mes los primeros 3 meses y luego $99. Pro (hasta 20) cuesta $199 al mes. Durante la beta puedes probar sin costo.</p></details>
     </div>
   </div>
 </section>
 
-<div id="checkout" hidden aria-label="Contratar plan">
+<section class="final">
   <div class="wrap">
-    <button class="back" id="ckBack" type="button">← Volver a planes</button>
+    <div class="box">
+      <h2>Reúne a tu familia en un mapa</h2>
+      <p>Pide acceso a la beta y te ayudamos a crear tu grupo.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="#beta">Unirme a la beta gratis</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="checkout" hidden aria-label="Solicitud de acceso">
+  <div class="wrap">
+    <button class="back" id="ckBack" type="button">← Volver</button>
     <div class="ck-grid">
       <div class="ck-main">
-        <span class="eyebrow" id="ckEyebrow">Plan</span>
+        <span class="kicker" id="ckKicker"></span>
         <h2 id="ckTitle"></h2>
         <p class="muted" id="ckSub"></p>
         <form class="ck-form" id="ckForm" novalidate>
           <label>Tu nombre<input id="f-name" autocomplete="name" required></label>
-          <label>Correo electrónico<input id="f-email" type="email" autocomplete="email" required></label>
-          <label>WhatsApp (opcional)<input id="f-phone" type="tel" autocomplete="tel"></label>
-          <label>¿Cuántos van a ser?<input id="f-size" type="number" min="1" value="5"></label>
-          <button class="btn btn-primary" type="submit">Continuar</button>
-          <p class="ck-legal">El pago se procesa de forma segura al instalar la app en Android. Sin cargos ocultos; cancelas cuando quieras.</p>
+          <label>Correo electrónico<input id="f-email" type="email" autocomplete="email"></label>
+          <label>WhatsApp<input id="f-phone" type="tel" autocomplete="tel"></label>
+          <label>¿Cuántas personas serán?<input id="f-size" type="number" min="1" max="20" value="4"></label>
+          <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+          <p class="ck-legal">Usamos estos datos solo para contactarte sobre la beta.</p>
         </form>
         <div class="ck-done" id="ckDone" hidden></div>
       </div>
       <aside class="ck-summary">
-        <div class="ck-plan">Plan <span id="ckPlanName"></span></div>
+        <div class="ck-plan" id="ckPlanName"></div>
         <div class="price"><span class="amt" id="ckPrice"></span><span class="per" id="ckPer"></span></div>
         <div class="price-note" id="ckNote"></div>
         <ul id="ckFeatures"></ul>
@@ -487,68 +468,80 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="brand" style="font-size:1.05rem">
+        <div class="brand">
           <span class="logo"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
           Familia Segura
         </div>
-        <p>Un mapa privado para cuidar a quienes quieres. Hecho con cariño para familias.</p>
-        <span class="badge-android"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="m5 3 14 9-14 9V3z"/></svg> Disponible para Android</span>
+        <p>Un mapa privado para cuidar a quienes quieres. Disponible en beta para Android.</p>
       </div>
-      <div class="foot-col">
-        <h4>Producto</h4>
-        <a href="#funciones">Funciones</a>
-        <a href="#como">Cómo funciona</a>
-        <a href="#planes">Planes y precios</a>
-      </div>
-      <div class="foot-col">
-        <h4>Contacto</h4>
-        <span class="foot-contact">hola@familiasegura.app</span>
-        <span class="foot-contact">Soporte por WhatsApp</span>
-      </div>
-      <div class="foot-col">
-        <h4>Legal</h4>
-        <a href="#privacidad">Privacidad</a>
-        <a href="#privacidad">Términos de uso</a>
-      </div>
+      <div class="foot-col"><h4>Producto</h4><a href="#funciones">Funciones</a><a href="#como">Cómo funciona</a><a href="#planes">Planes y precios</a></div>
+      <div class="foot-col"><h4>Ayuda</h4><a href="#preguntas">Preguntas frecuentes</a><a href="#beta">Pedir acceso a la beta</a></div>
+      <div class="foot-col"><h4>Privacidad</h4><a href="#privacidad">Cómo cuidamos tus datos</a></div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 Familia Segura · Todos los derechos reservados.</span>
-      <span>Hecho para cuidar a quienes quieres.</span>
-    </div>
+    <div class="foot-bottom"><span>© 2026 Familia Segura</span><span>Versión beta 0.0.1</span></div>
   </div>
 </footer>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Familia Segura","operatingSystem":"Android","applicationCategory":"LifestyleApplication","description":"Mapa privado para ver en tiempo real dónde está cada integrante de tu familia, con botón SOS, zonas seguras y avisos de llegada.","inLanguage":"es","offers":[{"@type":"Offer","name":"Gratis","price":"0","priceCurrency":"MXN"},{"@type":"Offer","name":"Familiar","price":"99","priceCurrency":"MXN"},{"@type":"Offer","name":"Pro","price":"199","priceCurrency":"MXN"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Funciona con la app cerrada?","acceptedAnswer":{"@type":"Answer","text":"Sí. Con la ubicación en Permitir todo el tiempo y la batería en Sin restricciones, la app sigue compartiendo en segundo plano."}},
+{"@type":"Question","name":"¿Quién puede ver mi ubicación?","acceptedAnswer":{"@type":"Answer","text":"Solo los integrantes de tu grupo familiar."}},
+{"@type":"Question","name":"¿El botón SOS llama a emergencias?","acceptedAnswer":{"@type":"Answer","text":"El SOS avisa a tu familia con tu ubicación. No llama a servicios de emergencia; si estás en peligro, llama también al 911."}},
+{"@type":"Question","name":"¿Funciona en iPhone?","acceptedAnswer":{"@type":"Answer","text":"Por ahora solo en Android."}},
+{"@type":"Question","name":"¿Cuánto cuesta?","acceptedAnswer":{"@type":"Answer","text":"Hasta 2 personas es gratis. Familiar (hasta 10) cuesta 99 pesos al mes y Pro (hasta 20) cuesta 199 pesos al mes. Durante la beta puedes probar sin costo."}}
+]}
+</script>
+
 <script>
 (function(){
+  // Para recibir solicitudes por WhatsApp, escribe aquí tu número con código de país, solo dígitos (ej. 5216671234567).
+  var CONTACT_WHATSAPP = "";
+
   var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>';
   var PLANS = {
-    "plan-familiar": { name:"Familiar", eyebrow:"Plan Familiar", title:"Protege a toda tu familia", sub:"Hasta 10 personas, con todas las funciones activas.", price:"$79", per:"MXN / mes", note:"Precio de lanzamiento los primeros 3 meses. Después $99 MXN/mes.", features:["Hasta 10 miembros","Zonas seguras ilimitadas","Avísame cuando llegue","Avisos de batería y velocidad","Botón SOS y recorrido del día"] },
-    "plan-pro": { name:"Pro", eyebrow:"Plan Pro", title:"Para familias grandes", sub:"Hasta 20 personas y más historial.", price:"$199", per:"MXN / mes", note:"Precio directo, sin letra chica.", features:["Hasta 20 miembros","Historial de 30 días","SOS con prioridad y llamada","Soporte preferente","Todo lo del plan Familiar"] }
+    "beta": { name:"Beta gratuita", kicker:"Beta abierta", title:"Prueba Familia Segura con tu familia", sub:"Te enviamos el instalador para Android y te ayudamos a crear tu grupo.", price:"$0", per:"durante la beta", note:"Grupos de hasta 2 personas gratis para siempre.", features:["Mapa en tiempo real y botón SOS","Zonas seguras y avisos de llegada","Chat familiar","Entra con Google o con correo"] },
+    "plan-familiar": { name:"Plan Familiar", kicker:"Plan Familiar", title:"Protege a toda tu familia", sub:"Hasta 10 personas con todas las funciones.", price:"$79", per:"MXN / mes", note:"Precio de lanzamiento los primeros 3 meses. Después $99 MXN/mes.", features:["Hasta 10 personas","Todas las funciones incluidas","Prueba sin costo durante la beta"] },
+    "plan-pro": { name:"Plan Pro", kicker:"Plan Pro", title:"Para familias grandes", sub:"Hasta 20 personas y atención prioritaria.", price:"$199", per:"MXN / mes", note:"Precio fijo.", features:["Hasta 20 personas","Atención prioritaria por WhatsApp","Historial de 30 días (próximamente)","Prueba sin costo durante la beta"] }
   };
+  var current = "beta";
   function $(id){ return document.getElementById(id); }
-  function fill(p){
-    $("ckEyebrow").textContent=p.eyebrow; $("ckTitle").textContent=p.title; $("ckSub").textContent=p.sub;
+  function fill(key){
+    var p = PLANS[key]; current = key;
+    $("ckKicker").textContent=p.kicker; $("ckTitle").textContent=p.title; $("ckSub").textContent=p.sub;
     $("ckPlanName").textContent=p.name; $("ckPrice").textContent=p.price; $("ckPer").textContent=p.per; $("ckNote").textContent=p.note;
     var ul=$("ckFeatures"); ul.innerHTML="";
     p.features.forEach(function(f){ var li=document.createElement("li"); li.innerHTML=CHECK+"<span></span>"; li.querySelector("span").textContent=f; ul.appendChild(li); });
     $("ckForm").hidden=false; $("ckDone").hidden=true;
   }
   function route(){
-    var h=(location.hash||"").replace("#",""); var co=$("checkout"); var p=PLANS[h];
-    if(p){ fill(p); co.hidden=false; document.body.style.overflow="hidden"; co.scrollTop=0; }
+    var h=(location.hash||"").replace("#",""); var co=$("checkout");
+    if(PLANS[h]){ fill(h); co.hidden=false; document.body.style.overflow="hidden"; co.scrollTop=0; }
     else { co.hidden=true; document.body.style.overflow=""; }
   }
   window.addEventListener("hashchange", route);
-  $("ckBack").addEventListener("click", function(){ location.hash="planes"; });
+  $("ckBack").addEventListener("click", function(){ location.hash = current==="beta" ? "top" : "planes"; });
   $("ckForm").addEventListener("submit", function(e){
     e.preventDefault();
-    var name=($("f-name").value||"").trim(), email=($("f-email").value||"").trim();
-    if(!name||!email){ return; }
+    var name=($("f-name").value||"").trim(), email=($("f-email").value||"").trim(), phone=($("f-phone").value||"").trim(), size=($("f-size").value||"").trim();
+    if(!name || (!email && !phone)){ $("f-name").focus(); return; }
     $("ckForm").hidden=true;
     var d=$("ckDone"); d.hidden=false; d.innerHTML="";
-    var h3=document.createElement("h3"); h3.textContent="¡Gracias, "+name+"!";
-    var p=document.createElement("p"); p.textContent="Te escribiremos a "+email+" para darte acceso. Mientras, descarga la app, crea tu grupo y elige este plan desde la app.";
-    d.appendChild(h3); d.appendChild(p);
+    var h3=document.createElement("h3"), p=document.createElement("p");
+    if(CONTACT_WHATSAPP){
+      h3.textContent="Último paso, "+name;
+      p.textContent="Toca el botón para enviarnos tu solicitud por WhatsApp. Es lo que nos permite contactarte.";
+      var msg="Hola, quiero probar Familia Segura ("+PLANS[current].name+"). Soy "+name+(email?", correo "+email:"")+(phone?", WhatsApp "+phone:"")+". Seremos "+size+" personas.";
+      var a=document.createElement("a"); a.className="btn btn-primary"; a.target="_blank"; a.rel="noopener";
+      a.href="https://wa.me/"+CONTACT_WHATSAPP+"?text="+encodeURIComponent(msg); a.textContent="Enviar por WhatsApp";
+      d.appendChild(h3); d.appendChild(p); d.appendChild(a);
+    } else {
+      h3.textContent="Estamos activando las solicitudes";
+      p.textContent="Todavía no recibimos solicitudes desde esta página. Vuelve en unos días y vamos a poder atenderte.";
+      d.appendChild(h3); d.appendChild(p);
+    }
   });
   route();
 })();

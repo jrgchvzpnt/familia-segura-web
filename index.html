@@ -354,7 +354,17 @@
   .quote blockquote { margin:0; } .quote p { font-size:1.02rem; color:var(--fg); }
   .quote figcaption { color:var(--muted); font-size:.9rem; margin-top:14px; }
   @media (max-width:880px) { .quotes { grid-template-columns:1fr; } }
-  @media (max-width:640px) { .cmp-hint { display:block; } }
+  @media (max-width:640px) {
+    .cmp-wrap { overflow:visible; border:0; background:transparent; }
+    .cmp, .cmp tbody { display:block; min-width:0; }
+    .cmp thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+    .cmp tbody { display:grid; gap:12px; }
+    .cmp tr { display:block; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 14px 10px; }
+    .cmp tbody th { display:block; border:0; padding:0 0 8px; min-width:0; font-family:var(--font-head); font-size:1rem; }
+    .cmp td { display:flex; justify-content:space-between; align-items:baseline; gap:14px; border:0; padding:8px 10px; margin-top:4px; border-radius:8px; text-align:right; }
+    .cmp td::before { content:attr(data-label); color:var(--muted); font-weight:500; text-align:left; flex:none; }
+    .cmp td.us::before { color:var(--brand-2); }
+  }
 </style>
 
 <header>
@@ -542,12 +552,12 @@
     <div class="cmp-wrap" role="region" aria-label="Comparativa de funciones" tabindex="0"><table class="cmp">
       <thead><tr><th scope="col"><span class="sr">Función</span></th><th scope="col" class="us">Familia Segura</th><th scope="col">WhatsApp</th><th scope="col">Life360</th></tr></thead>
       <tbody>
-        <tr><th scope="row">Ubicación en vivo</th><td class="us"><span class="y">Continua</span></td><td>15 min, 1 h u 8 h</td><td>Continua</td></tr>
-        <tr><th scope="row">Aviso cuando alguien llega a un lugar</th><td class="us"><span class="y">Sí</span></td><td class="n">No</td><td>Sí</td></tr>
-        <tr><th scope="row">Lugares con aviso</th><td class="us"><span class="y">Sin límite</span></td><td class="n">No aplica</td><td>2 en el plan gratis, ilimitados de pago</td></tr>
-        <tr><th scope="row">Historial de recorrido</th><td class="us"><span class="y">7 días en todos los planes</span></td><td class="n">No</td><td>2 días gratis, 30 de pago</td></tr>
-        <tr><th scope="row">Botón SOS para la familia</th><td class="us"><span class="y">Sí</span></td><td class="n">No</td><td>Sí</td></tr>
-        <tr><th scope="row">Disponible en</th><td class="us">Solo Android, por ahora</td><td>Android y iPhone</td><td>Android y iPhone</td></tr>
+        <tr><th scope="row">Ubicación en vivo</th><td class="us" data-label="Familia Segura"><span class="y">Continua</span></td><td data-label="WhatsApp">15 min, 1 h u 8 h</td><td data-label="Life360">Continua</td></tr>
+        <tr><th scope="row">Aviso cuando alguien llega a un lugar</th><td class="us" data-label="Familia Segura"><span class="y">Sí</span></td><td class="n" data-label="WhatsApp">No</td><td data-label="Life360">Sí</td></tr>
+        <tr><th scope="row">Lugares con aviso</th><td class="us" data-label="Familia Segura"><span class="y">Sin límite</span></td><td class="n" data-label="WhatsApp">No aplica</td><td data-label="Life360">2 en el plan gratis, ilimitados de pago</td></tr>
+        <tr><th scope="row">Historial de recorrido</th><td class="us" data-label="Familia Segura"><span class="y">7 días en todos los planes</span></td><td class="n" data-label="WhatsApp">No</td><td data-label="Life360">2 días gratis, 30 de pago</td></tr>
+        <tr><th scope="row">Botón SOS para la familia</th><td class="us" data-label="Familia Segura"><span class="y">Sí</span></td><td class="n" data-label="WhatsApp">No</td><td data-label="Life360">Sí</td></tr>
+        <tr><th scope="row">Disponible en</th><td class="us" data-label="Familia Segura">Solo Android, por ahora</td><td data-label="WhatsApp">Android y iPhone</td><td data-label="Life360">Android y iPhone</td></tr>
       </tbody>
     </table></div>
     <p class="note">Datos de WhatsApp y Life360 revisados en noviembre de 2026; pueden cambiar. Fuentes: <a href="https://blog.whatsapp.com/share-your-live-location" target="_blank" rel="noopener">WhatsApp</a> y <a href="https://www.life360.com/en-mx/plans-pricing" target="_blank" rel="noopener">Life360</a>.</p>

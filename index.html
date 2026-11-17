@@ -211,6 +211,102 @@
     .final .box { padding:32px 20px; } .foot-top { grid-template-columns:1fr; gap:22px; }
   }
   @media (prefers-reduced-motion:reduce) { .btn { transition:none; } .btn:hover { transform:none; } }
+
+  /* Carrusel de pantallas de la app */
+  .phone-col { justify-self:center; width:min(340px,88vw); }
+  .dev { --dw:min(290px,76vw); width:var(--dw); margin:0 auto; }
+  .dev-bezel { background:linear-gradient(160deg,#1c212b,#090b0f); border:1px solid #2b3342; border-radius:40px; padding:9px; box-shadow:0 40px 90px rgba(0,0,0,.65), 0 0 90px rgba(61,125,255,.13); }
+  .dev-screen { font-size:calc(var(--dw)/27); border-radius:31px; overflow:hidden; background:#141218; aspect-ratio:9/19; position:relative; color:#e6e0e9; text-align:left; line-height:1.35; }
+  .dev-screen b { font-weight:600; }
+  .dev-cam { position:absolute; top:.85em; left:50%; width:.95em; height:.95em; margin-left:-.475em; border-radius:50%; background:#000; z-index:6; }
+  .sb { position:absolute; top:0; left:0; right:0; height:2.5em; background:#141218; display:flex; align-items:center; justify-content:space-between; padding:0 1.7em; font-size:.95em; font-weight:600; z-index:5; }
+  .sbi { display:inline-flex; gap:.4em; } .sbi svg { width:1.3em; height:1.3em; }
+  .sc { position:absolute; inset:0; padding-top:2.5em; display:flex; flex-direction:column; opacity:0; visibility:hidden; transition:opacity .45s ease, visibility .45s; }
+  .sc.on { opacity:1; visibility:visible; }
+  .nav { margin-top:auto; display:flex; justify-content:space-around; background:#1d1b20; padding:.65em .2em .85em; }
+  .nav span { width:25%; display:flex; flex-direction:column; align-items:center; gap:.2em; font-size:.8em; color:#938f99; }
+  .nav svg { width:1.6em; height:1.6em; }
+  .pill { width:3.5em; height:1.95em; border-radius:1em; display:grid; place-items:center; }
+  .nav .a { color:#e6e0e9; } .nav .a .pill { background:#4a4458; }
+  .mapwrap { position:relative; flex:1; overflow:hidden; }
+  .mapsvg { position:absolute; inset:0; width:100%; height:100%; }
+  .fab { position:absolute; left:1em; width:3em; height:3em; border-radius:.9em; background:#4f378b; color:#eaddff; display:grid; place-items:center; box-shadow:0 .2em .6em rgba(0,0,0,.35); }
+  .fab svg { width:1.5em; height:1.5em; } .fab b { font-size:1.4em; line-height:1; }
+  .sos { position:absolute; top:.9em; right:1em; width:5.2em; height:5.2em; border-radius:50%; background:#d32f2f; color:#fff; display:grid; place-items:center; font-weight:700; font-size:1.35em; box-shadow:0 .3em .9em rgba(211,47,47,.5); }
+  .sheet { position:absolute; left:0; right:0; bottom:0; background:#1d1b20; border-radius:1.5em 1.5em 0 0; padding:1em .5em .9em; display:flex; justify-content:space-around; }
+  .m { width:24%; text-align:center; display:flex; flex-direction:column; align-items:center; min-width:0; }
+  .av { width:3.5em; height:3.5em; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:700; font-style:normal; font-size:1.2em; }
+  .m .av { font-size:1.15em; } .m b { font-size:.95em; margin-top:.35em; } .m span { font-size:.72em; color:#cac4d0; max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hd, .hd2, .ttl, .chh { padding:.9em 1.2em .3em; }
+  .hd { display:flex; justify-content:space-between; align-items:center; } .hd b { font-size:1.6em; }
+  .tb { display:inline-flex; align-items:center; gap:.4em; color:#d0bcff; font-size:.95em; } .tb svg { width:1.3em; height:1.3em; }
+  .list { padding:.5em 1em; display:flex; flex-direction:column; gap:.7em; overflow:hidden; }
+  .ac { display:flex; gap:.7em; background:#2b2930; border-radius:1.1em; padding:1em .6em 1em 1em; }
+  .ac.sosc { background:#601410; color:#ffdad6; }
+  .ud { width:.8em; height:.8em; border-radius:50%; background:#d0bcff; margin-top:.5em; flex:none; }
+  .ab b { font-size:1.12em; } .ab p { font-size:.95em; margin:.25em 0 0; color:#cac4d0; } .ac.sosc .ab p { color:#ffdad6; }
+  .ab small { display:block; font-size:.8em; color:#aaa5b0; margin-top:.4em; } .ab u { display:block; color:#d0bcff; font-size:.92em; margin-top:.5em; text-decoration:none; }
+  .ac em { font-style:normal; color:#cac4d0; align-self:flex-start; padding:0 .3em; font-size:1.2em; }
+  .hd2 b, .ttl { font-size:1.6em; font-weight:600; } .hd2 p { font-size:.95em; color:#cac4d0; margin:.4em 0 .7em; }
+  .btn1 { display:inline-block; background:#d0bcff; color:#381e72; border-radius:2em; padding:.6em 1.3em; font-weight:600; font-size:.95em; }
+  .btn2 { display:inline-block; border:1px solid #938f99; color:#d0bcff; border-radius:2em; padding:.55em 1.2em; font-size:.95em; }
+  .zc { display:flex; justify-content:space-between; align-items:center; background:#2b2930; border-radius:1.1em; padding:.9em 1em; } .zc b { font-size:1.12em; } .zc small { display:block; font-size:.85em; color:#cac4d0; } .zc svg { width:1.5em; height:1.5em; color:#cac4d0; }
+  .sh { font-weight:600; font-size:1.15em; margin-top:.5em; }
+  .cx { background:#2b2930; border-radius:1.1em; padding:1em; } .cx small { color:#cac4d0; font-size:.88em; }
+  .code { font-size:2.3em; font-weight:700; letter-spacing:.14em; margin:.15em 0 .45em; } .rw { display:flex; gap:.6em; }
+  .rh { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:.5em; } .rh b { font-size:1.05em; }
+  .mem { padding:.55em 0; border-top:1px solid #3a373f; } .mem:first-of-type { border-top:0; }
+  .mr { display:flex; align-items:center; gap:.7em; } .dot { width:.9em; height:.9em; border-radius:50%; flex:none; } .mi { flex:1; min-width:0; } .mi b { font-size:1.05em; } .mi small { display:block; } .mr u { color:#d0bcff; text-decoration:none; font-size:.95em; }
+  .chips { display:flex; flex-wrap:wrap; gap:.1em .6em; margin:.35em 0 0 1.6em; } .chip { color:#d0bcff; font-size:.88em; padding:.25em 0; }
+  .chh { display:flex; align-items:center; gap:.8em; font-size:1.15em; } .chh span { font-size:1.6em; line-height:1; }
+  .msgs { flex:1; padding:.6em 1em; display:flex; flex-direction:column; gap:.7em; justify-content:flex-end; }
+  .bb { align-self:flex-start; max-width:78%; background:#2b2930; border-radius:1.2em; padding:.7em 1em; font-size:1.02em; }
+  .bb.me { align-self:flex-end; background:#4a4458; }
+  .bb .who { display:block; color:#f48fb1; font-size:.8em; font-weight:600; } .bb .tm { display:block; text-align:right; font-size:.72em; color:#aaa5b0; margin-top:.2em; }
+  .inp { display:flex; align-items:center; gap:.7em; padding:.8em 1em 1.1em; } .inp .ph { flex:1; border:1px solid #938f99; border-radius:.9em; padding:.9em 1em; color:#938f99; font-size:.98em; } .inp .send { background:#d0bcff; color:#381e72; border-radius:2em; padding:.8em 1.1em; font-weight:600; font-size:.95em; }
+  .dev-tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:22px; }
+  .dev-tab { font-family:var(--font-head); font-size:.82rem; font-weight:600; background:transparent; border:1px solid var(--line-2); color:var(--muted); border-radius:999px; padding:7px 15px; cursor:pointer; }
+  .dev-tab:hover { border-color:var(--brand); color:var(--fg); }
+  .dev-tab.on { background:rgba(61,125,255,.16); border-color:var(--brand); color:var(--fg); }
+  .dev-cap { text-align:center; margin-top:16px; min-height:5em; }
+  .dev-cap b { display:block; font-family:var(--font-head); font-size:1.02rem; }
+  .dev-cap span { display:block; color:var(--muted); font-size:.94rem; margin:4px auto 0; max-width:34ch; }
+  .dev-note { text-align:center; color:var(--faint); font-size:.8rem; margin-top:6px; }
+
+  /* Funciones en bloques */
+  .frow { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-bottom:84px; }
+  .frow.rev .fvis { order:-1; }
+  .ftxt h3 { font-size:clamp(1.5rem,3vw,2rem); }
+  .ftxt > p { color:var(--muted); margin-top:14px; font-size:1.05rem; max-width:50ch; }
+  .fl { list-style:none; padding:0; margin:22px 0 0; display:grid; gap:12px; max-width:52ch; }
+  .fl li { display:flex; gap:10px; align-items:flex-start; font-size:.98rem; }
+  .fvis { display:flex; justify-content:center; }
+  .uic { width:100%; max-width:440px; background:linear-gradient(180deg,var(--surface),var(--bg-2)); border:1px solid var(--line-2); border-radius:20px; padding:18px; box-shadow:0 30px 70px rgba(0,0,0,.45); }
+  .uic-h { display:flex; justify-content:space-between; align-items:baseline; padding:2px 4px 10px; } .uic-h b { font-family:var(--font-head); } .uic-h small { color:var(--muted); font-size:.84rem; }
+  .mrow { display:flex; align-items:center; gap:12px; padding:12px 4px; border-top:1px solid var(--line); }
+  .mrow .av { width:40px; height:40px; font-size:.95rem; flex:none; } .mrow b { font-size:.98rem; } .mrow small { display:block; color:var(--muted); font-size:.82rem; }
+  .tag { margin-left:auto; font-style:normal; font-size:.74rem; font-weight:600; padding:3px 10px; border-radius:999px; border:1px solid; white-space:nowrap; }
+  .tag.ok { color:var(--good); border-color:color-mix(in srgb, var(--good) 40%, transparent); background:color-mix(in srgb, var(--good) 10%, transparent); }
+  .tag.warn { color:#e7c15a; border-color:rgba(231,193,90,.4); background:rgba(231,193,90,.1); }
+  .nt { display:flex; align-items:flex-start; gap:12px; padding:14px; border-radius:14px; background:var(--surface-2); border:1px solid var(--line); margin-bottom:10px; }
+  .nt:last-child { margin-bottom:0; }
+  .nt.sos { border-color:color-mix(in srgb, var(--sos) 45%, var(--line)); background:color-mix(in srgb, var(--sos) 11%, var(--surface-2)); }
+  .nt .ni { width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:rgba(255,255,255,.05); flex:none; } .nt .ni svg { width:19px; height:19px; }
+  .nt b { font-size:.96rem; } .nt p { color:var(--muted); font-size:.84rem; margin-top:2px; } .nt small { margin-left:auto; color:var(--faint); font-size:.78rem; white-space:nowrap; }
+  .zmap { display:block; width:100%; height:150px; border-radius:12px; margin-bottom:6px; }
+  .zr { display:flex; align-items:center; gap:12px; padding:12px 4px; border-top:1px solid var(--line); } .zr b { font-size:.96rem; } .zr small { display:block; color:var(--muted); font-size:.82rem; }
+  .also { font-size:1.35rem; margin:0 0 20px; }
+  .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .tile { display:flex; gap:14px; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:20px; min-width:0; }
+  .tile .ic { margin:0; width:40px; height:40px; flex:none; border-radius:11px; } .tile .ic svg { width:19px; height:19px; }
+  .tile h4 { font-family:var(--font-head); font-size:1rem; margin:0; } .tile p { color:var(--muted); font-size:.92rem; margin-top:4px; }
+  @media (max-width:880px) {
+    .phone-col { order:-1; }
+    .frow { grid-template-columns:1fr; gap:30px; margin-bottom:56px; }
+    .frow.rev .fvis { order:0; }
+    .tiles { grid-template-columns:1fr; }
+  }
+  @media (prefers-reduced-motion:reduce) { .sc { transition:none; } }
 </style>
 
 <header>
@@ -244,51 +340,55 @@
         </div>
         <p class="micro">Gratis durante la beta. Entra con tu cuenta de Google o con tu correo.</p>
       </div>
-      <div class="phone" aria-hidden="true">
-        <div class="phone-frame">
-          <div class="phone-screen">
-            <svg viewBox="0 0 300 620" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
-              <defs><filter id="ps" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#000" flood-opacity=".55"/></filter></defs>
-              <rect width="300" height="620" fill="#0b0f16"/>
-              <rect x="162" y="48" width="160" height="120" rx="16" fill="#132220"/>
-              <text x="206" y="150" fill="#33604e" font-family="DM Sans,sans-serif" font-size="11" text-anchor="middle">Parque</text>
-              <path d="M-20 470 C 50 430 100 500 182 470 S 332 510 352 480 L352 640 L-20 640Z" fill="#0d1c2b"/>
-              <path d="M-20 470 C 50 430 100 500 182 470 S 332 510 352 480" stroke="#17324a" stroke-width="2" fill="none"/>
-              <g stroke="#19222e" stroke-width="5" stroke-linecap="round"><path d="M0 104 H300 M0 398 H300 M0 534 H300 M66 20 V620 M232 20 V620"/></g>
-              <path d="M0 224 H150 V312 H300" stroke="#26323f" stroke-width="10" fill="none" stroke-linecap="round"/>
-              <path d="M0 224 H150 V312 H300" stroke="#37465a" stroke-width="2" fill="none" stroke-dasharray="1 11" stroke-linecap="round"/>
-              <circle cx="232" cy="224" r="4" fill="#5aa2f0"/>
-              <text x="232" y="214" fill="#667285" font-family="DM Sans,sans-serif" font-size="9" text-anchor="middle">Súper</text>
-              <path d="M96 534 V466 H150 V312" stroke="#3d7dff" stroke-width="13" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".2"/>
-              <path d="M96 534 V466 H150 V312" stroke="#3d7dff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <g filter="url(#ps)"><circle cx="66" cy="398" r="15" fill="#f2994a" stroke="#0b0f16" stroke-width="3"/><text x="66" y="403" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="700" fill="#2a1600">I</text></g>
-              <g filter="url(#ps)"><circle cx="252" cy="430" r="15" fill="#3ddc84" stroke="#0b0f16" stroke-width="3"/><text x="252" y="435" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="700" fill="#06130c">R</text></g>
-              <circle cx="150" cy="312" r="46" fill="#3d7dff" opacity=".12"/>
-              <circle cx="150" cy="312" r="46" fill="none" stroke="#3d7dff" stroke-width="1.5" opacity=".45"/>
-              <g filter="url(#ps)"><path d="M150 278c-11 0-20 9-20 20 0 14 20 32 20 32s20-18 20-32c0-11-9-20-20-20z" fill="#d6409f" stroke="#fff" stroke-width="2.5"/><circle cx="150" cy="298" r="8" fill="#fff"/></g>
-            </svg>
-            <div class="ph-status">
-              <span>9:41</span>
-              <span class="ph-icons">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C7 4 3 7 1 11l11 9 11-9c-2-4-6-7-11-7z" opacity=".9"/></svg>
-                <svg viewBox="0 0 26 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M23 11v2"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor"/></svg>
-              </span>
-            </div>
-            <div class="sos-badge">SOS</div>
-            <div class="mini-card">
-              <span class="mini-av" style="background:#d6409f">J</span>
-              <div class="mini-info"><b>Juan</b><span>En movimiento · hace 1 min · 78%</span></div>
-              <span class="mini-ping">● en vivo</span>
-            </div>
-            <div class="ph-nav">
-              <span class="it on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Mapa</span>
-              <span class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>Avisos</span>
-              <span class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>Zonas</span>
-              <span class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Familia</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="phone-col">
+  <div class="dev" id="dev" role="group" aria-roledescription="carrusel" aria-label="Pantallas de la app">
+    <div class="dev-bezel"><div class="dev-screen">
+      <i class="dev-cam"></i>
+      <div class="sb"><span>9:41</span><span class="sbi"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4C7 4 3 7 1 11l11 9 11-9c-2-4-6-7-11-7z"/></svg><svg viewBox="0 0 26 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M23 11v2"/><rect x="4" y="9" width="12" height="6" rx="1" fill="currentColor"/></svg></span></div>
+      <div class="sc on" data-t="Mapa en vivo" data-d="Cada familiar aparece con su color, su batería y la hora de su última actualización.">
+<div class="mapwrap"><svg class="mapsvg" viewBox="0 0 272 490" preserveAspectRatio="xMidYMid slice">
+<defs><filter id="sh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.6" flood-color="#000" flood-opacity=".35"/></filter></defs>
+<rect width="272" height="490" fill="#eceff3"/>
+<rect x="160" y="80" width="100" height="82" rx="10" fill="#cfe6d3"/>
+<text x="210" y="124" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#6f927a">Parque</text>
+<path d="M-10 355 C 60 322 110 392 190 362 S 280 330 290 332" stroke="#a8d4f2" stroke-width="22" fill="none" stroke-linecap="round"/>
+<g stroke="#d3d8e0" stroke-width="9" stroke-linecap="round" fill="none"><path d="M0 70H272M0 170H272M0 292H272M0 410H272M60 0V490M150 0V490M230 0V490"/></g>
+<g stroke="#fff" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M0 70H272M0 170H272M0 292H272M0 410H272M60 0V490M150 0V490M230 0V490"/></g>
+<path d="M-10 440 L120 310 L290 238" stroke="#e8b04a" stroke-width="9" fill="none" stroke-linecap="round"/>
+<path d="M-10 440 L120 310 L290 238" stroke="#f7d58a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<text x="104" y="64" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#8a93a1">Av. Obregón</text>
+<text x="208" y="204" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#8a93a1">Centro</text>
+<text x="36" y="476" font-family="DM Sans,sans-serif" font-size="7.5" fill="#6aa4cc">Río</text>
+<path d="M60 410V292H150V170" stroke="#3d7dff" stroke-width="7" opacity=".22" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 410V292H150V170" stroke="#2f6ff0" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="150" cy="170" r="34" fill="#3d7dff" fill-opacity=".13" stroke="#3d7dff" stroke-opacity=".5" stroke-width="1.2"/>
+<g filter="url(#sh)"><circle cx="60" cy="70" r="12" fill="#d6409f" stroke="#fff" stroke-width="2.5"/><text x="60" y="74" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" font-weight="700" fill="#fff">M</text></g><g filter="url(#sh)"><circle cx="230" cy="70" r="12" fill="#db8326" stroke="#fff" stroke-width="2.5"/><text x="230" y="74" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" font-weight="700" fill="#fff">I</text></g><g filter="url(#sh)"><circle cx="150" cy="170" r="12" fill="#2e86de" stroke="#fff" stroke-width="2.5"/><text x="150" y="174" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" font-weight="700" fill="#fff">J</text></g>
+<circle cx="230" cy="292" r="12" fill="#4285f4" fill-opacity=".2"/><circle cx="230" cy="292" r="6" fill="#4285f4" stroke="#fff" stroke-width="2.5"/>
+</svg>
+<div class="fab" style="top:.9em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div class="fab" style="top:4.1em"><b>↻</b></div><div class="fab" style="top:7.3em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+<div class="sos">SOS</div><div class="fab" style="top:6.4em;left:auto;right:1em"><b>◐</b></div>
+<div class="sheet"><div class="m"><i class="av" style="background:#2e86de">J</i><b>Yo</b><span>ahora · 88%</span></div><div class="m"><i class="av" style="background:#d6409f">M</i><b>Mamá</b><span>hace 2 min · 82%</span></div><div class="m"><i class="av" style="background:#db8326">I</i><b>Isabel</b><span>hace 4 min · 76%</span></div><div class="m"><i class="av" style="background:#8a8f98">P</i><b>Papá</b><span>sin señal</span></div></div></div><div class="nav"><span class="a"><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i>Mapa</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>Avisos</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i>Zonas</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i>Familia</span></div></div><div class="sc" aria-hidden="true" data-t="Avisos al instante" data-d="SOS, llegadas a casa, batería baja y velocidad. Los no leídos se marcan y se borran deslizando.">
+<div class="hd"><b>Avisos</b><span class="tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg> Borrar todo</span></div>
+<div class="list"><div class="ac sosc"><i class="ud" style="opacity:1"></i><div class="ab"><b>Juan necesita ayuda</b><p>Envió una alerta de emergencia. Abre la app para ver su ubicación.</p><small>18:42 · hace 2 min</small><u>Ver en el mapa</u></div><em>×</em></div>
+<div class="ac "><i class="ud" style="opacity:1"></i><div class="ab"><b>Isabel llegó bien a casa</b><p>Entró a la zona segura "Casa".</p><small>18:17 · hace 27 min</small><u>Ver en el mapa</u></div><em>×</em></div>
+<div class="ac "><i class="ud" style="opacity:0"></i><div class="ab"><b>Batería baja: Papá</b><p>Le queda 12% de batería. Podría quedarse sin teléfono pronto.</p><small>17:02 · hace 1 h</small></div><em>×</em></div></div><div class="nav"><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i>Mapa</span><span class="a"><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>Avisos</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i>Zonas</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i>Familia</span></div></div><div class="sc" aria-hidden="true" data-t="Zonas seguras" data-d="Casa, escuela o trabajo. La familia recibe un aviso cuando alguien llega o sale.">
+<div class="hd2"><b>Zonas seguras</b><p>Cuando alguien llegue o salga de una zona, toda la familia recibe un aviso.</p><span class="btn1">+ Crear zona donde estoy</span></div>
+<div class="list"><div class="zc"><div><b>Casa</b><small>Radio de 150 m</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg></div><div class="zc"><div><b>Escuela</b><small>Radio de 200 m</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg></div><div class="zc"><div><b>Trabajo</b><small>Radio de 500 m</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg></div>
+<div class="sh">Avisos de llegada pendientes</div><div class="zc"><div><b>Isabel → Escuela</b><small>Avisar a Juan</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg></div></div><div class="nav"><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i>Mapa</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>Avisos</span><span class="a"><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i>Zonas</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i>Familia</span></div></div><div class="sc" aria-hidden="true" data-t="Tu grupo familiar" data-d="Invita con un código de 6 letras. Llama, escribe por WhatsApp o pregunta dónde está cada quien.">
+<div class="ttl">Familia Herrera</div>
+<div class="list"><div class="cx"><small>Código para invitar</small><div class="code">8J92KB</div><div class="rw"><span class="btn1">Compartir</span><span class="btn2">Copiar</span></div></div>
+<div class="cx"><div class="rh"><b>Miembros</b><small>4 de 10 · Familiar</small></div>
+<div class="mem"><div class="mr"><i class="dot" style="background:#d6409f"></i><div class="mi"><b>Mamá</b><small>ahora · 82% · a 1.2 km</small></div><u>Ver</u></div><div class="chips"><span class="chip">Llamar</span><span class="chip">WhatsApp</span><span class="chip">Dónde está</span><span class="chip">Al llegar</span></div></div>
+<div class="mem"><div class="mr"><i class="dot" style="background:#db8326"></i><div class="mi"><b>Isabel</b><small>hace 4 min · 76% · a 900 m</small></div><u>Ver</u></div><div class="chips"><span class="chip">Dónde está</span><span class="chip">Al llegar</span><span class="chip">Renombrar</span></div></div></div></div><div class="nav"><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i>Mapa</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>Avisos</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i>Zonas</span><span class="a"><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i>Familia</span></div></div><div class="sc" aria-hidden="true" data-t="Chat familiar" data-d="Un chat solo para tu grupo, sin salir de la app.">
+<div class="chh"><span>×</span><b>Chat de Familia Herrera</b></div>
+<div class="msgs"><div class="bb "><small class="who">Mamá</small>¿Ya llegaste a casa?<small class="tm">18:15</small></div><div class="bb me">Ya estoy, voy a cenar<small class="tm">18:16</small></div><div class="bb "><small class="who">Mamá</small>Perfecto. Avísame cuando salga Isabel de la escuela.<small class="tm">18:17</small></div><div class="bb me">Listo, ya activé el aviso de llegada<small class="tm">18:18</small></div></div>
+<div class="inp"><span class="ph">Escribe un mensaje…</span><span class="send">Enviar</span></div></div>
+    </div></div>
+  </div>
+  <div class="dev-tabs"><button type="button" class="dev-tab on" aria-pressed="true">Mapa</button><button type="button" class="dev-tab" aria-pressed="false">Avisos</button><button type="button" class="dev-tab" aria-pressed="false">Zonas</button><button type="button" class="dev-tab" aria-pressed="false">Familia</button><button type="button" class="dev-tab" aria-pressed="false">Chat</button></div>
+  <p class="dev-cap" id="devCap" aria-live="polite"><b>Mapa en vivo</b><span>Cada familiar aparece con su color, su batería y la hora de su última actualización.</span></p>
+  <p class="dev-note">Pantallas ilustrativas con datos de ejemplo.</p>
+</div>
     </div>
   </div>
 </div>
@@ -296,22 +396,59 @@
 <section id="funciones">
   <div class="wrap">
     <div class="sec-head">
-      <h2>Lo que necesitas para cuidarse entre todos</h2>
-      <p>Pensado para el camino a la escuela, el regreso del trabajo y el momento en que alguien necesita ayuda.</p>
+      <h2>Todo lo que necesitas para cuidarse entre todos</h2>
+      <p>Cuatro herramientas que trabajan juntas: ver dónde está cada quien, enterarte de lo importante, pedir ayuda y coordinarse.</p>
     </div>
-    <div class="features">
-      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3z"/><path d="M9 7v13M15 4v13"/></svg></div>
-        <h3>Mapa en vivo</h3><p>Cada familiar aparece con su color, la hora de su última actualización y su batería. Se actualiza solo, aunque la app esté cerrada.</p></div>
-      <div class="card"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg></div>
-        <h3>Botón SOS</h3><p>Manda una alerta a toda la familia con tu ubicación y, durante 15 minutos, la actualiza cada 15 segundos para que te encuentren.</p></div>
-      <div class="card"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg></div>
-        <h3>Zonas seguras</h3><p>Marca casa, escuela o trabajo y recibe un aviso cuando alguien llega o sale. Si llegan a casa, te lo dice con esas palabras.</p></div>
-      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-        <h3>Avísame al llegar</h3><p>Elige a una persona y un lugar. Cuando llegue, te avisamos una sola vez y no tienes que estar mirando el mapa.</p></div>
-      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 6-8"/><path d="M3 21h18"/></svg></div>
-        <h3>Recorrido y chat</h3><p>Revisa por dónde anduvo cada quien en los últimos 7 días y coordínense en el chat del grupo.</p></div>
-      <div class="card"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></div>
-        <h3>Batería y velocidad</h3><p>Te avisamos si a alguien le queda poca batería o si va a más de 110 km/h.</p></div>
+
+    <div class="frow">
+      <div class="ftxt">
+        <h3>Mira dónde está cada uno, en tiempo real</h3>
+        <p>Cada familiar aparece en el mapa con su color y su inicial. Ves la hora de su última actualización, su batería y a qué distancia está de ti.</p>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sigue compartiendo con la app cerrada si dejas la ubicación en "Permitir todo el tiempo".</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Marca a quien lleva más de 30 minutos sin señal, para que sepas cuándo preocuparte.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Cambia la vista del mapa entre normal, satélite y noche.</span></li></ul>
+      </div>
+      <div class="fvis"><div class="uic">
+        <div class="uic-h"><b>Miembros</b><small>4 de 10 · Familiar</small></div>
+        <div class="mrow"><i class="av" style="background:#d6409f">M</i><div><b>Mamá</b><small>ahora · 88% · a 1.2 km</small></div><em class="tag ok">En vivo</em></div>
+        <div class="mrow"><i class="av" style="background:#2e86de">J</i><div><b>Juan</b><small>En auto · hace 1 min · 78%</small></div><em class="tag ok">En movimiento</em></div>
+        <div class="mrow"><i class="av" style="background:#db8326">I</i><div><b>Isabel</b><small>hace 4 min · 76% · a 900 m</small></div><em class="tag ok">En vivo</em></div>
+        <div class="mrow"><i class="av" style="background:#8a8f98">P</i><div><b>Papá</b><small>hace 7 h · 45% · a 8.4 km</small></div><em class="tag warn">Sin señal</em></div>
+      </div></div>
+    </div>
+
+    <div class="frow rev">
+      <div class="ftxt">
+        <h3>Entérate de lo importante y pide ayuda al instante</h3>
+        <p>Cuando algo pasa, la familia recibe un aviso: llegadas a casa, salidas de una zona, batería baja o alta velocidad. Si tú necesitas ayuda, un botón avisa a todos.</p>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>El SOS manda tu ubicación a todos y la actualiza cada 15 segundos durante 15 minutos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Los avisos nuevos se marcan como no leídos y se quitan deslizándolos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Comparte tu ubicación por WhatsApp con un enlace, aunque la otra persona no tenga la app.</span></li></ul>
+      </div>
+      <div class="fvis"><div class="uic">
+        <div class="nt sos"><i class="ni" style="color:#ff6b6b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg></i><div><b>Juan necesita ayuda</b><p>Envió una alerta de emergencia.</p></div><small>ahora</small></div>
+        <div class="nt "><i class="ni" style="color:#3ddc84"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i><div><b>Isabel llegó bien a casa</b><p>Entró a la zona segura "Casa".</p></div><small>27 min</small></div>
+        <div class="nt "><i class="ni" style="color:#e7c15a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></i><div><b>Batería baja: Papá</b><p>Le queda 12% de batería.</p></div><small>1 h</small></div>
+      </div></div>
+    </div>
+
+    <div class="frow">
+      <div class="ftxt">
+        <h3>Zonas seguras y avisos de llegada</h3>
+        <p>Marca casa, escuela o trabajo con el radio que quieras. Cuando alguien entra o sale, la familia lo sabe. Si llega a casa, el aviso lo dice con esas palabras.</p>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pide un aviso puntual cuando una persona llegue a un lugar, sin crear una zona.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>La app te sugiere crear la zona "Casa" donde estás.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pregunta "¿dónde estás?" a un familiar con un toque.</span></li></ul>
+      </div>
+      <div class="fvis"><div class="uic">
+        <svg class="zmap" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice"><rect width="400" height="150" fill="#eceff3"/><rect x="250" y="12" width="120" height="58" rx="10" fill="#cfe6d3"/><g stroke="#d3d8e0" stroke-width="12" fill="none"><path d="M0 40H400M0 112H400M90 0V150M200 0V150M310 0V150"/></g><g stroke="#fff" stroke-width="9" fill="none"><path d="M0 40H400M0 112H400M90 0V150M200 0V150M310 0V150"/></g><circle cx="200" cy="76" r="44" fill="#3ddc84" fill-opacity=".22" stroke="#2fb26a" stroke-width="2"/><g><circle cx="200" cy="76" r="13" fill="#d6409f" stroke="#fff" stroke-width="3"/><text x="200" y="81" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="700" fill="#fff">M</text></g></svg>
+        <div class="zr"><div><b>Isabel → Escuela</b><small>Avisar a Juan</small></div><em class="tag warn">Pendiente</em></div>
+        <div class="zr"><div><b>Mamá → Casa</b><small>Avisar a Juan</small></div><em class="tag ok">Avisado</em></div>
+      </div></div>
+    </div>
+
+    <h3 class="also">Y además</h3>
+    <div class="tiles">
+      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 6-8"/><path d="M3 21h18"/></svg></div><div><h4>Recorrido de 7 días</h4><p>Revisa por dónde anduvo cada quien, día por día.</p></div></div>
+      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><h4>Chat familiar</h4><p>Un chat solo para tu grupo dentro de la app.</p></div></div>
+      <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div><div><h4>Llamar o WhatsApp</h4><p>Contacta a un familiar con un toque desde su ficha.</p></div></div>
+      <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></div><div><h4>Batería a tu medida</h4><p>Elige si avisamos a 10, 15, 20 o 30 por ciento.</p></div></div>
+      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div><h4>Entra con Google</h4><p>Sin contraseñas que recordar. También puedes usar tu correo.</p></div></div>
+      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 7v5l3 2"/></svg></div><div><h4>Ahorra batería</h4><p>Actualiza menos seguido cuando estás quieto.</p></div></div>
     </div>
   </div>
 </section>
@@ -495,6 +632,28 @@
 ]}
 </script>
 
+<script>
+(function(){
+  var dev=document.getElementById("dev"); if(!dev) return;
+  var slides=[].slice.call(dev.querySelectorAll(".sc"));
+  var tabs=[].slice.call(document.querySelectorAll(".dev-tab"));
+  var cap=document.getElementById("devCap");
+  var i=0, timer=null, reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function show(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){ var on=k===i; s.classList.toggle("on",on); s.setAttribute("aria-hidden", on?"false":"true"); });
+    tabs.forEach(function(t,k){ t.classList.toggle("on",k===i); t.setAttribute("aria-pressed", k===i?"true":"false"); });
+    var s=slides[i]; cap.querySelector("b").textContent=s.getAttribute("data-t"); cap.querySelector("span").textContent=s.getAttribute("data-d");
+  }
+  function play(){ if(reduce||timer) return; timer=setInterval(function(){ show(i+1); },4500); }
+  function stop(){ clearInterval(timer); timer=null; }
+  tabs.forEach(function(t,k){ t.addEventListener("click",function(){ stop(); show(k); }); });
+  var col=dev.parentNode;
+  col.addEventListener("mouseenter",stop); col.addEventListener("mouseleave",play);
+  col.addEventListener("focusin",stop); col.addEventListener("focusout",play);
+  show(0); play();
+})();
+</script>
 <script>
 (function(){
   // Número que recibe las solicitudes por WhatsApp: código de país (52) + 10 dígitos, sin espacios ni signos.

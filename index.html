@@ -308,6 +308,15 @@
     .frow.rev .fvis { order:0; }
     .tiles { grid-template-columns:1fr; }
   }
+  /* Tarjeta fiel a la pestaña Familia de la app */
+  .uic.app { background:#2b2930; color:#e6e0e9; border-color:#3a373f; padding:16px 18px; }
+  .ah { display:flex; justify-content:space-between; align-items:baseline; padding:2px 0 8px; } .ah b { font-size:1rem; font-weight:600; } .ah small { color:#cac4d0; font-size:.82rem; }
+  .am { padding:12px 0; } .am + .am { border-top:1px solid #3a373f; }
+  .amr { display:flex; align-items:center; gap:12px; } .adot { width:12px; height:12px; border-radius:50%; flex:none; }
+  .ami { flex:1; min-width:0; } .ami b { font-size:.98rem; font-weight:600; } .ami small { display:block; color:#cac4d0; font-size:.82rem; line-height:1.4; }
+  .amr u { color:#d0bcff; text-decoration:none; font-size:.9rem; font-weight:600; }
+  .achips { display:flex; flex-wrap:wrap; gap:2px 14px; margin:6px 0 0 24px; } .achips span { color:#d0bcff; font-size:.84rem; padding:3px 0; white-space:nowrap; }
+  .anote { color:#938f99; font-size:.74rem; margin-top:10px; text-align:right; }
   @media (max-width:480px) {
     .dev-tabs { gap:6px; flex-wrap:nowrap; }
     .dev-tab { font-size:.74rem; padding:6px 10px; }
@@ -413,12 +422,15 @@
         <p>Cada familiar aparece en el mapa con su color y su inicial. Ves la hora de su última actualización, su batería y a qué distancia está de ti.</p>
         <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sigue compartiendo con la app cerrada si dejas la ubicación en "Permitir todo el tiempo".</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Marca a quien lleva más de 30 minutos sin señal, para que sepas cuándo preocuparte.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Cambia la vista del mapa entre normal, satélite y noche.</span></li></ul>
       </div>
-      <div class="fvis"><div class="uic">
-        <div class="uic-h"><b>Miembros</b><small>4 de 10 · Familiar</small></div>
-        <div class="mrow"><i class="av" style="background:#d6409f">M</i><div><b>Mamá</b><small>ahora · 88% · a 1.2 km</small></div><em class="tag ok">En vivo</em></div>
-        <div class="mrow"><i class="av" style="background:#2e86de">J</i><div><b>Juan</b><small>En auto · hace 1 min · 78%</small></div><em class="tag ok">En movimiento</em></div>
-        <div class="mrow"><i class="av" style="background:#db8326">I</i><div><b>Isabel</b><small>hace 4 min · 76% · a 900 m</small></div><em class="tag ok">En vivo</em></div>
-        <div class="mrow"><i class="av" style="background:#8a8f98">P</i><div><b>Papá</b><small>hace 7 h · 45% · a 8.4 km</small></div><em class="tag warn">Sin señal</em></div>
+      <div class="fvis"><div class="uic app">
+        <div class="ah"><b>Miembros</b><small>3 de 10 · Familiar</small></div>
+        <div class="am"><div class="amr"><i class="adot" style="background:#2e86de"></i><div class="ami"><b>Juan (yo)</b><small>ahora · 🔋 88%⚡</small></div><u>Ver</u></div>
+          <div class="achips"><span>✏️ Renombrar</span></div></div>
+        <div class="am"><div class="amr"><i class="adot" style="background:#8a8f98"></i><div class="ami"><b>Papá</b><small>⚠️ Sin señal · hace 7 h · 🔋 45% · a 8.4 km</small></div><u>Ver</u></div>
+          <div class="achips"><span>❓ Dónde está</span><span>📍 Al llegar</span><span>✏️ Renombrar</span><span>🗑️ Quitar</span></div></div>
+        <div class="am"><div class="amr"><i class="adot" style="background:#d6409f"></i><div class="ami"><b>Mamá</b><small>hace 2 min · 🔋 82% · a 1.2 km</small></div><u>Ver</u></div>
+          <div class="achips"><span>📞 Llamar</span><span>💬 WhatsApp</span><span>❓ Dónde está</span><span>📍 Al llegar</span><span>✏️ Renombrar</span><span>🗑️ Quitar</span></div></div>
+        <p class="anote">Pestaña Familia de la app. Datos de ejemplo.</p>
       </div></div>
     </div>
 

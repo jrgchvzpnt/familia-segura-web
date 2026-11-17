@@ -6,8 +6,14 @@
 <title>Familia Segura | Mapa familiar con SOS y avisos de llegada</title>
 <meta name="description" content="Mapa privado para ver en tiempo real dónde está tu familia. Botón SOS, zonas seguras y avisos cuando llegan a casa. Beta gratis para Android.">
 <meta name="theme-color" content="#07090d">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://jrgchvzpnt.github.io/familia-segura-web/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%233d7dff'/%3E%3Cpath fill='white' d='M12 4C9.2 4 7 6.2 7 9c0 3.8 5 9 5 9s5-5.2 5-9c0-2.8-2.2-5-5-5zm0 6.8a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6z'/%3E%3C/svg%3E">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="Familia Segura">
@@ -15,6 +21,7 @@
 <meta property="og:description" content="Mapa privado para tu familia: ubicación en vivo, botón SOS y avisos de llegada. Beta gratis para Android.">
 <meta property="og:url" content="https://jrgchvzpnt.github.io/familia-segura-web/">
 <meta property="og:image" content="https://jrgchvzpnt.github.io/familia-segura-web/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Familia Segura: mapa privado para tu familia con botón SOS y avisos de llegada">
@@ -329,6 +336,25 @@
     .back { min-height:44px; }
   }
   @media (prefers-reduced-motion:reduce) { .sc { transition:none; } }
+  /* Comparativa y testimonios */
+  .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .cmp-hint { display:none; color:var(--faint); font-size:.85rem; margin:0 0 8px; }
+  .cmp-wrap { overflow-x:auto; border:1px solid var(--line-2); border-radius:16px; background:var(--surface); }
+  .cmp { width:100%; min-width:640px; border-collapse:collapse; font-size:.95rem; }
+  .cmp th, .cmp td { padding:14px 16px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); color:#cdd5e2; }
+  .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom:0; }
+  .cmp thead th { font-family:var(--font-head); font-size:.9rem; color:var(--muted); font-weight:600; white-space:nowrap; }
+  .cmp tbody th { font-weight:500; color:var(--fg); min-width:190px; }
+  .cmp .us { background:color-mix(in srgb, var(--brand) 9%, transparent); color:var(--fg); }
+  .cmp thead .us { color:var(--brand-2); }
+  .cmp .y { color:var(--good); font-weight:600; }
+  .cmp .n { color:var(--faint); }
+  .quotes { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .quote { margin:0; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px; min-width:0; }
+  .quote blockquote { margin:0; } .quote p { font-size:1.02rem; color:var(--fg); }
+  .quote figcaption { color:var(--muted); font-size:.9rem; margin-top:14px; }
+  @media (max-width:880px) { .quotes { grid-template-columns:1fr; } }
+  @media (max-width:640px) { .cmp-hint { display:block; } }
 </style>
 
 <header>
@@ -361,6 +387,7 @@
           <a class="btn btn-ghost" href="#como">Ver cómo funciona</a>
         </div>
         <p class="micro">Gratis durante la beta. Entra con tu correo y contraseña, o con tu cuenta de Google.</p>
+        <noscript><p class="micro">Para pedir acceso escríbenos por <a href="https://wa.me/526671893497">WhatsApp</a>.</p></noscript>
       </div>
       <div class="phone-col">
   <div class="dev" id="dev" role="group" aria-roledescription="carrusel" aria-label="Pantallas de la app">
@@ -391,8 +418,8 @@
 <div class="sos">SOS</div><div class="fab" style="top:8.9em;left:auto;right:1em"><b>◐</b></div>
 <div class="sheet"><div class="m"><i class="av" style="background:#2e86de">J</i><b>Yo</b><span>ahora · 88%</span></div><div class="m"><i class="av" style="background:#d6409f">M</i><b>Mamá</b><span>hace 2 min · 82%</span></div><div class="m"><i class="av" style="background:#db8326">I</i><b>Isabel</b><span>hace 4 min · 76%</span></div><div class="m"><i class="av" style="background:#8a8f98">P</i><b>Papá</b><span>sin señal</span></div></div></div><div class="bnav"><span class="a"><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i>Mapa</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>Avisos</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i>Zonas</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i>Familia</span></div></div><div class="sc" aria-hidden="true" data-t="Avisos al instante" data-d="SOS, llegadas a casa, batería baja y velocidad. Los no leídos se marcan y se borran deslizando.">
 <div class="hd"><b>Avisos</b><span class="tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg> Borrar todo</span></div>
-<div class="list"><div class="ac sosc"><i class="ud" style="opacity:1"></i><div class="ab"><b>Juan necesita ayuda</b><p>Envió una alerta de emergencia. Abre la app para ver su ubicación.</p><small>18:42 · hace 2 min</small><u>Ver en el mapa</u></div><em>×</em></div>
-<div class="ac "><i class="ud" style="opacity:1"></i><div class="ab"><b>Isabel llegó bien a casa</b><p>Entró a la zona segura "Casa".</p><small>18:17 · hace 27 min</small><u>Ver en el mapa</u></div><em>×</em></div>
+<div class="list"><div class="ac sosc"><i class="ud" style="opacity:1"></i><div class="ab"><b>Isabel necesita ayuda</b><p>Envió una alerta de emergencia. Abre la app para ver su ubicación.</p><small>18:42 · hace 2 min</small><u>Ver en el mapa</u></div><em>×</em></div>
+<div class="ac "><i class="ud" style="opacity:1"></i><div class="ab"><b>Mamá llegó bien a casa</b><p>Entró a la zona segura "Casa".</p><small>18:17 · hace 27 min</small><u>Ver en el mapa</u></div><em>×</em></div>
 <div class="ac "><i class="ud" style="opacity:0"></i><div class="ab"><b>Batería baja: Papá</b><p>Le queda 12% de batería. Podría quedarse sin teléfono pronto.</p><small>17:02 · hace 1 h</small></div><em>×</em></div></div><div class="bnav"><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i>Mapa</span><span class="a"><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>Avisos</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i>Zonas</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i>Familia</span></div></div><div class="sc" aria-hidden="true" data-t="Zonas seguras" data-d="Casa, escuela o trabajo. La familia recibe un aviso cuando alguien llega o sale.">
 <div class="hd2"><b>Zonas seguras</b><p>Cuando alguien llegue o salga de una zona, toda la familia recibe un aviso.</p><span class="btn1">+ Crear zona donde estoy</span></div>
 <div class="list"><div class="zc"><div><b>Casa</b><small>Radio de 150 m</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg></div><div class="zc"><div><b>Escuela</b><small>Radio de 200 m</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg></div><div class="zc"><div><b>Trabajo</b><small>Radio de 500 m</small></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/></svg></div>
@@ -400,7 +427,7 @@
 <div class="ttl">Familia Herrera</div>
 <div class="list"><div class="cx"><small>Código para invitar</small><div class="code">8J92KB</div><div class="rw"><span class="btn1">Compartir</span><span class="btn2">Copiar</span></div></div>
 <div class="cx"><div class="rh"><b>Miembros</b><small>4 de 10 · Familiar</small></div>
-<div class="mem"><div class="mr"><i class="dot" style="background:#d6409f"></i><div class="mi"><b>Mamá</b><small>ahora · 82% · a 1.2 km</small></div><u>Ver</u></div><div class="chips"><span class="chip">Llamar</span><span class="chip">WhatsApp</span><span class="chip">Dónde está</span><span class="chip">Al llegar</span></div></div>
+<div class="mem"><div class="mr"><i class="dot" style="background:#d6409f"></i><div class="mi"><b>Mamá</b><small>hace 2 min · 82% · a 1.2 km</small></div><u>Ver</u></div><div class="chips"><span class="chip">Llamar</span><span class="chip">WhatsApp</span><span class="chip">Dónde está</span><span class="chip">Al llegar</span></div></div>
 <div class="mem"><div class="mr"><i class="dot" style="background:#db8326"></i><div class="mi"><b>Isabel</b><small>hace 4 min · 76% · a 900 m</small></div><u>Ver</u></div><div class="chips"><span class="chip">Dónde está</span><span class="chip">Al llegar</span><span class="chip">Renombrar</span></div></div></div></div><div class="bnav"><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-7.75-7-12a7 7 0 0 1 14 0c0 4.25-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i>Mapa</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></i>Avisos</span><span class=""><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i>Zonas</span><span class="a"><i class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></i>Familia</span></div></div><div class="sc" aria-hidden="true" data-t="Chat familiar" data-d="Un chat solo para tu grupo, sin salir de la app.">
 <div class="chh"><span>×</span><b>Chat de Familia Herrera</b></div>
 <div class="msgs"><div class="bb "><small class="who">Mamá</small>¿Ya llegaste a casa?<small class="tm">18:15</small></div><div class="bb me">Ya estoy, voy a cenar<small class="tm">18:16</small></div><div class="bb "><small class="who">Mamá</small>Perfecto. Avísame cuando salga Isabel de la escuela.<small class="tm">18:17</small></div><div class="bb me">Listo, ya activé el aviso de llegada<small class="tm">18:18</small></div></div>
@@ -429,10 +456,12 @@
         <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sigue compartiendo con la app cerrada si dejas la ubicación en "Permitir todo el tiempo".</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Marca a quien lleva más de 30 minutos sin señal, para que sepas cuándo preocuparte.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Cambia la vista del mapa entre normal, satélite y noche.</span></li></ul>
       </div>
       <div class="fvis"><div class="uic app">
-        <div class="ah"><b>Miembros</b><small>3 de 10 · Familiar</small></div>
+        <div class="ah"><b>Miembros</b><small>4 de 10 · Familiar</small></div>
         <div class="am"><div class="amr"><i class="adot" style="background:#2e86de"></i><div class="ami"><b>Juan (yo)</b><small>ahora · 🔋 88%⚡</small></div><u>Ver</u></div>
           <div class="achips"><span>✏️ Renombrar</span></div></div>
         <div class="am"><div class="amr"><i class="adot" style="background:#8a8f98"></i><div class="ami"><b>Papá</b><small>⚠️ Sin señal · hace 7 h · 🔋 45% · a 8.4 km</small></div><u>Ver</u></div>
+          <div class="achips"><span>❓ Dónde está</span><span>📍 Al llegar</span><span>✏️ Renombrar</span><span>🗑️ Quitar</span></div></div>
+        <div class="am"><div class="amr"><i class="adot" style="background:#db8326"></i><div class="ami"><b>Isabel</b><small>hace 4 min · 🔋 76% · a 900 m</small></div><u>Ver</u></div>
           <div class="achips"><span>❓ Dónde está</span><span>📍 Al llegar</span><span>✏️ Renombrar</span><span>🗑️ Quitar</span></div></div>
         <div class="am"><div class="amr"><i class="adot" style="background:#d6409f"></i><div class="ami"><b>Mamá</b><small>hace 2 min · 🔋 82% · a 1.2 km</small></div><u>Ver</u></div>
           <div class="achips"><span>📞 Llamar</span><span>💬 WhatsApp</span><span>❓ Dónde está</span><span>📍 Al llegar</span><span>✏️ Renombrar</span><span>🗑️ Quitar</span></div></div>
@@ -447,8 +476,8 @@
         <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>El SOS manda tu ubicación a todos y la actualiza cada 15 segundos durante 15 minutos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Los avisos nuevos se marcan como no leídos y se quitan deslizándolos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Comparte tu ubicación por WhatsApp con un enlace, aunque la otra persona no tenga la app.</span></li></ul>
       </div>
       <div class="fvis"><div class="uic">
-        <div class="nt crit"><i class="ni" style="color:#ff6b6b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg></i><div><b>Juan necesita ayuda</b><p>Envió una alerta de emergencia.</p></div><small>ahora</small></div>
-        <div class="nt "><i class="ni" style="color:#3ddc84"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i><div><b>Isabel llegó bien a casa</b><p>Entró a la zona segura "Casa".</p></div><small>27 min</small></div>
+        <div class="nt crit"><i class="ni" style="color:#ff6b6b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg></i><div><b>Isabel necesita ayuda</b><p>Envió una alerta de emergencia.</p></div><small>ahora</small></div>
+        <div class="nt "><i class="ni" style="color:#3ddc84"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></i><div><b>Mamá llegó bien a casa</b><p>Entró a la zona segura "Casa".</p></div><small>27 min</small></div>
         <div class="nt "><i class="ni" style="color:#e7c15a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></i><div><b>Batería baja: Papá</b><p>Le queda 12% de batería.</p></div><small>1 h</small></div>
       </div></div>
     </div>
@@ -492,7 +521,36 @@
 <section>
   <div class="wrap story">
     <h2>Nació en casa</h2>
-    <p>Familia Segura empezó como una herramienta para nuestra propia familia: saber que los nuestros llegan bien en una ciudad donde eso preocupa. La construimos primero para nosotros y ahora la abrimos a otras familias que quieren lo mismo.</p>
+    <p>Familia Segura empezó como una herramienta para nuestra propia familia: saber que los nuestros llegan bien en una ciudad donde eso preocupa. La construimos primero para nosotros y ahora la abrimos a otras familias que quieren lo mismo. Hoy la usa nuestra familia en sus teléfonos Android.</p>
+  </div>
+</section>
+
+<section id="testimonios" class="band" hidden>
+  <div class="wrap">
+    <div class="sec-head"><h2>Lo que dicen las familias</h2></div>
+    <div class="quotes" id="quotes"></div>
+  </div>
+</section>
+
+<section id="comparativa">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>¿Por qué no usar la ubicación de WhatsApp?</h2>
+      <p>WhatsApp sirve para compartir dónde estás un rato. Familia Segura está pensada para cuidarse todos los días.</p>
+    </div>
+    <p class="cmp-hint">Desliza la tabla para ver todo →</p>
+    <div class="cmp-wrap" role="region" aria-label="Comparativa de funciones" tabindex="0"><table class="cmp">
+      <thead><tr><th scope="col"><span class="sr">Función</span></th><th scope="col" class="us">Familia Segura</th><th scope="col">WhatsApp</th><th scope="col">Life360</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Ubicación en vivo</th><td class="us"><span class="y">Continua</span></td><td>15 min, 1 h u 8 h</td><td>Continua</td></tr>
+        <tr><th scope="row">Aviso cuando alguien llega a un lugar</th><td class="us"><span class="y">Sí</span></td><td class="n">No</td><td>Sí</td></tr>
+        <tr><th scope="row">Lugares con aviso</th><td class="us"><span class="y">Sin límite</span></td><td class="n">No aplica</td><td>2 en el plan gratis, ilimitados de pago</td></tr>
+        <tr><th scope="row">Historial de recorrido</th><td class="us"><span class="y">7 días en todos los planes</span></td><td class="n">No</td><td>2 días gratis, 30 de pago</td></tr>
+        <tr><th scope="row">Botón SOS para la familia</th><td class="us"><span class="y">Sí</span></td><td class="n">No</td><td>Sí</td></tr>
+        <tr><th scope="row">Disponible en</th><td class="us">Solo Android, por ahora</td><td>Android y iPhone</td><td>Android y iPhone</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">Datos de WhatsApp y Life360 revisados en noviembre de 2026; pueden cambiar. Fuentes: <a href="https://blog.whatsapp.com/share-your-live-location" target="_blank" rel="noopener">WhatsApp</a> y <a href="https://www.life360.com/en-mx/plans-pricing" target="_blank" rel="noopener">Life360</a>.</p>
   </div>
 </section>
 
@@ -581,6 +639,7 @@
       <details><summary>¿Puedo pausar el compartir?</summary><p>Mientras estás en el grupo, la ubicación se comparte siempre. Puedes salir del grupo cuando quieras y deja de compartirse al momento.</p></details>
       <details><summary>¿El botón SOS llama a emergencias?</summary><p>El SOS avisa a tu familia con tu ubicación. No llama a servicios de emergencia. Si estás en peligro, llama también al 911.</p></details>
       <details><summary>¿Cómo inicio sesión?</summary><p>De dos formas: creando tu cuenta con correo y contraseña, o con tu cuenta de Google en un toque. Si olvidas la contraseña, la app te manda un correo para cambiarla.</p></details>
+      <details><summary>¿Por qué Android me avisa de «origen desconocido» al instalar la beta?</summary><p>Durante la beta la app se instala con un archivo (APK) que te mandamos por WhatsApp, porque todavía no está en Google Play. Por eso Android pregunta si confías en el origen. Al abrir el archivo toca «Configuración», activa «Permitir desde esta fuente» y regresa a instalar. Si Play Protect muestra «App no reconocida», toca «Más detalles» y luego «Instalar de todas formas». Instala solo archivos que te lleguen de nuestro WhatsApp. Cuando la app esté en Google Play, estos avisos desaparecen.</p></details>
       <details><summary>¿Necesito internet?</summary><p>Sí, datos móviles o WiFi. Sin conexión la ubicación no se actualiza, y al volver la señal se sincroniza.</p></details>
       <details><summary>¿Funciona en iPhone?</summary><p>Por ahora solo en Android.</p></details>
       <details><summary>¿Cuánto cuesta?</summary><p>Hasta 2 personas es gratis. Familiar (hasta 10) cuesta $79 al mes los primeros 3 meses y luego $99. Pro (hasta 20) cuesta $199 al mes. Durante la beta puedes probar sin costo.</p></details>
@@ -614,6 +673,7 @@
           <label>¿Cuántas personas serán?<input id="f-size" type="number" min="1" max="20" value="4"></label>
           <button class="btn btn-primary" type="submit">Enviar solicitud</button>
           <p class="ck-legal">Usamos estos datos solo para contactarte sobre la beta.</p>
+          <p class="ck-legal">La beta se instala con un archivo que te enviamos por WhatsApp. Android te pedirá permitir la instalación desde esa fuente; es normal mientras la app no esté en Google Play.</p>
         </form>
         <div class="ck-done" id="ckDone" hidden></div>
       </div>
@@ -686,6 +746,20 @@
   // Número que recibe las solicitudes por WhatsApp: código de país (52) + 10 dígitos, sin espacios ni signos.
   var CONTACT_WHATSAPP = "526671893497";
 
+  // Testimonios reales: agrega objetos { texto: "...", nombre: "...", detalle: "..." } y la sección aparece sola.
+  var TESTIMONIOS = [];
+  (function(){
+    if(!TESTIMONIOS.length) return;
+    var s=document.getElementById("testimonios"), box=document.getElementById("quotes");
+    TESTIMONIOS.forEach(function(t){
+      var f=document.createElement("figure"); f.className="quote";
+      var b=document.createElement("blockquote"), p=document.createElement("p"); p.textContent=t.texto; b.appendChild(p);
+      var c=document.createElement("figcaption"); c.textContent=t.nombre+(t.detalle?" · "+t.detalle:"");
+      f.appendChild(b); f.appendChild(c); box.appendChild(f);
+    });
+    s.hidden=false;
+  })();
+
   var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>';
   var PLANS = {
     "beta": { name:"Beta gratuita", kicker:"Beta abierta", title:"Prueba Familia Segura con tu familia", sub:"Te enviamos el instalador para Android y te ayudamos a crear tu grupo.", price:"$0", per:"durante la beta", note:"Grupos de hasta 2 personas gratis para siempre.", features:["Mapa en tiempo real y botón SOS","Zonas seguras y avisos de llegada","Chat familiar","Entra con correo y contraseña o con tu cuenta de Google"] },
@@ -722,7 +796,7 @@
       var msg="Hola, quiero probar Familia Segura ("+PLANS[current].name+"). Soy "+name+(email?", correo "+email:"")+(phone?", WhatsApp "+phone:"")+". Seremos "+size+" personas.";
       var a=document.createElement("a"); a.className="btn btn-primary"; a.target="_blank"; a.rel="noopener";
       a.href="https://wa.me/"+CONTACT_WHATSAPP+"?text="+encodeURIComponent(msg); a.textContent="Enviar por WhatsApp";
-      d.appendChild(h3); d.appendChild(p); d.appendChild(a);
+      var p2=document.createElement("p"); p2.textContent="Después te enviamos el archivo de instalación. Android pedirá permiso para instalar desde esa fuente; es normal mientras la app no esté en Google Play."; d.appendChild(h3); d.appendChild(p); d.appendChild(p2); d.appendChild(a);
     } else {
       h3.textContent="Estamos activando las solicitudes";
       p.textContent="Todavía no recibimos solicitudes desde esta página. Vuelve en unos días y vamos a poder atenderte.";

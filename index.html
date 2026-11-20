@@ -294,6 +294,32 @@
   .qa span { flex:1; display:flex; flex-direction:column; align-items:center; gap:.3em; min-width:0; }
   .qa i { width:2.6em; height:2.6em; border-radius:50%; background:rgba(157,177,255,.15); color:#9db1ff; display:grid; place-items:center; }
   .qa .si { width:1.3em; height:1.3em; } .qa em { font-style:normal; font-size:.66em; white-space:nowrap; }
+  /* Línea de tiempo de lugares y perfil */
+  .topb { display:flex; align-items:center; gap:.7em; padding:.6em 1em; border-bottom:1px solid #262d3d; }
+  .topb .si { width:1.5em; height:1.5em; } .topb .av { width:2.6em; height:2.6em; font-size:.95em; }
+  .topb b { display:block; font-size:1.05em; } .topb small { color:#a3abbc; font-size:.78em; }
+  .dayb { text-align:center; padding:.5em 0 .2em; } .dayb b { display:block; font-size:1.05em; } .dayb small { color:#a3abbc; font-size:.76em; }
+  .tlr { display:flex; gap:.6em; align-items:stretch; }
+  .tlc { width:2.3em; position:relative; display:flex; justify-content:center; flex:none; }
+  .tlc::before { content:""; position:absolute; top:0; bottom:0; left:50%; width:2px; margin-left:-1px; background:#262d3d; }
+  .tld { position:relative; z-index:1; width:2.1em; height:2.1em; border-radius:50%; display:grid; place-items:center; color:#fff; margin-top:.6em; border:.18em solid #0d111b; }
+  .tld .si { width:1em; height:1em; }
+  .tlm { position:relative; z-index:1; width:1.4em; height:1.4em; border-radius:50%; background:#232a3a; color:#a3abbc; display:grid; place-items:center; align-self:center; }
+  .tlm .si { width:.75em; height:.75em; }
+  .tlx { flex:1; min-width:0; } .tlx .card { margin:.25em 0; padding:.65em .8em; }
+  .r2 { display:flex; justify-content:space-between; align-items:center; gap:.5em; } .r2 b { font-size:.92em; } .r2 small { display:block; color:#a3abbc; font-size:.72em; }
+  .mv { padding:.45em 0; color:#a3abbc; } .mv b { display:block; font-size:.8em; font-weight:600; } .mv small { font-size:.68em; }
+  .pfh { text-align:center; padding:.4em 0 .1em; } .pfh .av { width:4.6em; height:4.6em; font-size:1.6em; margin:0 auto; }
+  .pfh b { display:block; font-family:var(--font-head); font-size:1.35em; margin-top:.35em; } .pfh small { color:#a3abbc; font-size:.8em; }
+  .pfh .pills { justify-content:center; margin:.5em 0 0; }
+  .li { display:flex; align-items:center; gap:.6em; font-size:.82em; padding:.15em 0; } .li i { width:.6em; height:.6em; border-radius:50%; flex:none; } .li span { flex:1; } .li small { color:#a3abbc; }
+  .two { display:flex; gap:.5em; } .two > * { flex:1; }
+  .cta2 { border:1px solid #3a4356; color:#9db1ff; border-radius:2em; padding:.75em; text-align:center; font-weight:600; font-size:.92em; }
+  @media (max-width:480px) {
+    .dev-tabs { overflow-x:auto; justify-content:flex-start; scrollbar-width:none; padding-bottom:2px; }
+    .dev-tabs::-webkit-scrollbar { display:none; }
+    .dev-tab { flex:none; }
+  }
   /* La misma tarjeta de la app, fuera del teléfono */
   .appcard { font-size:14px; width:100%; max-width:440px; background:#0d111b; color:#e6e9f0; border:1px solid var(--line-2); border-radius:22px; padding:16px; box-shadow:0 30px 70px rgba(0,0,0,.45); display:flex; flex-direction:column; gap:10px; }
   .appcard .anote { color:#7f889b; font-size:.74rem; text-align:right; margin:2px 0 0; }
@@ -439,6 +465,9 @@
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></symbol>
     <symbol id="i-more" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></symbol>
     <symbol id="i-close" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></symbol>
   </svg>
   <div class="dev" id="dev" role="group" aria-roledescription="carrusel" aria-label="Pantallas de la app">
@@ -508,6 +537,34 @@
         <div class="bnav"><span class="a"><i class="pill"><svg class="si"><use href="#i-pin"/></svg></i>Mapa</span><span><i class="pill"><svg class="si"><use href="#i-bell"/></svg></i>Avisos</span><span><i class="pill"><svg class="si"><use href="#i-shield"/></svg></i>Zonas</span><span><i class="pill"><svg class="si"><use href="#i-group"/></svg></i>Familia</span></div>
       </div>
 
+      <!-- LUGARES -->
+      <div class="sc" aria-hidden="true" data-t="Lugares del día" data-d="Una línea de tiempo por persona: dónde estuvo, a qué hora llegó y cuánto tiempo se quedó.">
+        <div class="topb"><svg class="si"><use href="#i-back"/></svg><i class="av" style="background:#db8326">I</i><div><b>Lugares</b><small>Isabel</small></div></div>
+        <div class="dayb"><b>Hoy</b><small>3 lugares · 5.7 km en movimiento</small></div>
+        <div class="scr" style="padding-top:.2em;gap:0">
+          <div class="tlr"><div class="tlc"><span class="tld" style="background:#0f9d74"><svg class="si"><use href="#i-home"/></svg></span></div><div class="tlx"><div class="card"><div class="r2"><div><b>Casa</b><small>Desde las 17:40</small></div><span class="pl g">Ahí ahora · 1 h 5 min</span></div></div></div></div>
+          <div class="tlr"><div class="tlc"><span class="tlm"><svg class="si"><use href="#i-nav"/></svg></span></div><div class="mv"><b>En camino · 3.1 km</b><small>17:15 – 17:40 · 25 min</small></div></div>
+          <div class="tlr"><div class="tlc"><span class="tld" style="background:#2f54eb"><svg class="si"><use href="#i-star"/></svg></span></div><div class="tlx"><div class="card"><div class="r2"><div><b>Casa de la abuela</b><small>14:20 – 17:15</small></div><span class="pl">2 h 55 min</span></div></div></div></div>
+          <div class="tlr"><div class="tlc"><span class="tlm"><svg class="si"><use href="#i-nav"/></svg></span></div><div class="mv"><b>En camino · 2.6 km</b><small>14:00 – 14:20 · 20 min</small></div></div>
+          <div class="tlr"><div class="tlc"><span class="tld" style="background:#0f9d74"><svg class="si"><use href="#i-shield"/></svg></span></div><div class="tlx"><div class="card"><div class="r2"><div><b>Escuela</b><small>7:55 – 14:00</small></div><span class="pl">6 h 5 min</span></div></div></div></div>
+        </div>
+      </div>
+
+      <!-- PERFIL -->
+      <div class="sc" aria-hidden="true" data-t="Perfil de cada familiar" data-d="Toca a alguien y ves todo junto: dónde está, su batería, sus lugares de hoy y sus avisos.">
+        <div class="topb"><svg class="si"><use href="#i-back"/></svg><div><b>Perfil</b></div></div>
+        <div class="scr">
+          <div class="pfh"><i class="av" style="background:#db8326">I</i><b>Isabel</b><small>En Casa · Av. Obregón</small>
+            <div class="pills"><span class="pl g">hace 1 min</span><span class="pl"><svg class="si"><use href="#i-batt"/></svg>76%</span><span class="pl">a 900 m</span></div></div>
+          <div class="card" style="padding:.5em .4em"><div class="qa" style="border:0;margin:0;padding:0"><span><i><svg class="si"><use href="#i-pin"/></svg></i><em>Mapa</em></span><span><i><svg class="si"><use href="#i-help"/></svg></i><em>¿Dónde?</em></span><span><i><svg class="si"><use href="#i-flag"/></svg></i><em>Al llegar</em></span><span><i><svg class="si"><use href="#i-phone"/></svg></i><em>Llamar</em></span><span><i><svg class="si"><use href="#i-chat"/></svg></i><em>Mensaje</em></span></div></div>
+          <div class="lbl">HOY</div>
+          <div class="card"><div class="crow"><span class="badge" style="background:rgba(157,177,255,.15);color:#9db1ff"><svg class="si"><use href="#i-history"/></svg></span><div class="cb"><b>3 lugares · 5.7 km</b><p>Ahí desde las 17:40 · 1 h 5 min</p></div></div>
+            <div style="margin-top:.5em"><div class="li"><i style="background:#5fd7ae"></i><span>Casa</span><small>desde 17:40</small></div><div class="li"><i style="background:#9db1ff"></i><span>Casa de la abuela</span><small>14:20–17:15</small></div><div class="li"><i style="background:#5fd7ae"></i><span>Escuela</span><small>7:55–14:00</small></div></div></div>
+          <div class="lbl">AVISOS RECIENTES</div>
+          <div class="card" style="padding:.55em .85em"><div class="li"><i style="background:#5fd7ae"></i><span>🏠 Isabel llegó bien a casa</span><small>1 h</small></div><div class="li"><i style="background:#a3abbc"></i><span>Isabel salió de Escuela</span><small>4 h</small></div></div>
+        </div>
+      </div>
+
       <!-- AVISOS -->
       <div class="sc" aria-hidden="true" data-t="Avisos al instante" data-d="SOS, llegadas, &quot;Llegué bien&quot;, batería baja y sin movimiento. Cada tipo con su color.">
         <div class="scr">
@@ -521,14 +578,15 @@
       </div>
 
       <!-- ZONAS -->
-      <div class="sc" aria-hidden="true" data-t="Zonas seguras" data-d="De 20, 30 o 50 metros, con horario opcional. La familia sabe cuando alguien llega o sale.">
+      <div class="sc" aria-hidden="true" data-t="Zonas y lugares favoritos" data-d="Zonas seguras de 20, 30 o 50 m que avisan, y favoritos como &quot;Casa de la abuela&quot; que solo se guardan.">
         <div class="scr">
-          <div><div class="h1">Zonas seguras</div><p class="sub">Avisamos a la familia cuando alguien llega o sale.</p></div>
-          <div class="cta">+ Crear zona donde estoy</div>
-          <div class="lbl">TUS ZONAS · 3</div>
+          <div><div class="h1">Zonas y lugares</div><p class="sub">Zonas que avisan y favoritos que solo se guardan.</p></div>
+          <div class="two"><div class="cta">+ Zona segura</div><div class="cta2">★ Favorito</div></div>
+          <div class="lbl">ZONAS SEGURAS · AVISAN</div>
           <div class="card"><div class="crow"><span class="badge" style="background:rgba(95,215,174,.14);color:#5fd7ae"><svg class="si"><use href="#i-home"/></svg></span><div class="cb"><b>Casa</b><div class="pills" style="margin:.35em 0 0"><span class="pl g">Radio 50 m</span></div></div><span class="ico"><svg class="si"><use href="#i-edit"/></svg></span><span class="ico"><svg class="si"><use href="#i-del"/></svg></span></div></div>
-          <div class="card"><div class="crow"><span class="badge" style="background:rgba(95,215,174,.14);color:#5fd7ae"><svg class="si"><use href="#i-shield"/></svg></span><div class="cb"><b>Escuela</b><div class="pills" style="margin:.35em 0 0"><span class="pl g">Radio 30 m</span><span class="pl b">L–V · 07:00–08:00</span></div></div><span class="ico"><svg class="si"><use href="#i-edit"/></svg></span><span class="ico"><svg class="si"><use href="#i-del"/></svg></span></div></div>
-          <div class="card"><div class="crow"><span class="badge" style="background:rgba(95,215,174,.14);color:#5fd7ae"><svg class="si"><use href="#i-shield"/></svg></span><div class="cb"><b>Trabajo</b><div class="pills" style="margin:.35em 0 0"><span class="pl g">Radio 50 m</span></div></div><span class="ico"><svg class="si"><use href="#i-edit"/></svg></span><span class="ico"><svg class="si"><use href="#i-del"/></svg></span></div></div>
+          <div class="card"><div class="crow"><span class="badge" style="background:rgba(95,215,174,.14);color:#5fd7ae"><svg class="si"><use href="#i-shield"/></svg></span><div class="cb"><b>Escuela</b><div class="pills" style="margin:.35em 0 0"><span class="pl g">Radio 30 m</span><span class="pl b">L–V · 7:00–8:00</span></div></div><span class="ico"><svg class="si"><use href="#i-edit"/></svg></span><span class="ico"><svg class="si"><use href="#i-del"/></svg></span></div></div>
+          <div class="lbl">FAVORITOS · SIN AVISOS</div>
+          <div class="card"><div class="crow"><span class="badge" style="background:rgba(157,177,255,.15);color:#9db1ff"><svg class="si"><use href="#i-star"/></svg></span><div class="cb"><b>Casa de la abuela</b><div class="pills" style="margin:.35em 0 0"><span class="pl b">Radio 50 m</span><span class="pl">Sin avisos</span></div></div><span class="ico"><svg class="si"><use href="#i-edit"/></svg></span><span class="ico"><svg class="si"><use href="#i-del"/></svg></span></div></div>
         </div>
         <div class="bnav"><span><i class="pill"><svg class="si"><use href="#i-pin"/></svg></i>Mapa</span><span><i class="pill"><svg class="si"><use href="#i-bell"/></svg></i>Avisos</span><span class="a"><i class="pill"><svg class="si"><use href="#i-shield"/></svg></i>Zonas</span><span><i class="pill"><svg class="si"><use href="#i-group"/></svg></i>Familia</span></div>
       </div>
@@ -547,7 +605,7 @@
       </div>
     </div></div>
   </div>
-  <div class="dev-tabs"><button type="button" class="dev-tab on" aria-pressed="true">Mapa</button><button type="button" class="dev-tab" aria-pressed="false">Recorrido</button><button type="button" class="dev-tab" aria-pressed="false">Avisos</button><button type="button" class="dev-tab" aria-pressed="false">Zonas</button><button type="button" class="dev-tab" aria-pressed="false">Familia</button></div>
+  <div class="dev-tabs"><button type="button" class="dev-tab on" aria-pressed="true">Mapa</button><button type="button" class="dev-tab" aria-pressed="false">Recorrido</button><button type="button" class="dev-tab" aria-pressed="false">Lugares</button><button type="button" class="dev-tab" aria-pressed="false">Perfil</button><button type="button" class="dev-tab" aria-pressed="false">Avisos</button><button type="button" class="dev-tab" aria-pressed="false">Zonas</button><button type="button" class="dev-tab" aria-pressed="false">Familia</button></div>
   <p class="dev-cap" id="devCap" aria-live="polite"><b>Mapa en vivo</b><span>Toda la familia en un mapa limpio. SOS y "Llegué bien" siempre a la mano.</span></p>
   <p class="dev-note">Pantallas ilustrativas con datos de ejemplo.</p>
 </div>
@@ -591,11 +649,28 @@
       </div></div>
     </div>
 
+    <div class="frow rev">
+      <div class="ftxt">
+        <h3>Sabe dónde estuvo cada quien, sin revisar el mapa</h3>
+        <p>La app convierte el recorrido en una línea de tiempo: "Escuela 7:55–14:00 → Casa de la abuela → Casa desde las 17:40". Y el perfil de cada familiar reúne todo en una pantalla.</p>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Lugares del día con hora de llegada, cuánto tiempo estuvo y los kilómetros entre uno y otro, de los últimos 7 días.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Perfil de cada familiar: dónde está, su batería, sus lugares de hoy, sus avisos recientes y si su teléfono sonaría ante un SOS.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Llamar, escribir, preguntar "¿dónde estás?" o pedir un aviso de llegada desde su perfil.</span></li></ul>
+      </div>
+      <div class="fvis"><div class="appcard">
+        <div class="dayb" style="padding-top:0"><b>Isabel · Hoy</b><small>3 lugares · 5.7 km en movimiento</small></div>
+        <div class="tlr"><div class="tlc"><span class="tld" style="background:#0f9d74"><svg class="si"><use href="#i-home"/></svg></span></div><div class="tlx"><div class="card"><div class="r2"><div><b>Casa</b><small>Desde las 17:40</small></div><span class="pl g">Ahí ahora</span></div></div></div></div>
+        <div class="tlr"><div class="tlc"><span class="tlm"><svg class="si"><use href="#i-nav"/></svg></span></div><div class="mv"><b>En camino · 3.1 km</b><small>17:15 – 17:40 · 25 min</small></div></div>
+        <div class="tlr"><div class="tlc"><span class="tld" style="background:#2f54eb"><svg class="si"><use href="#i-star"/></svg></span></div><div class="tlx"><div class="card"><div class="r2"><div><b>Casa de la abuela</b><small>14:20 – 17:15</small></div><span class="pl">2 h 55 min</span></div></div></div></div>
+        <div class="tlr"><div class="tlc"><span class="tlm"><svg class="si"><use href="#i-nav"/></svg></span></div><div class="mv"><b>En camino · 2.6 km</b><small>14:00 – 14:20 · 20 min</small></div></div>
+        <div class="tlr"><div class="tlc"><span class="tld" style="background:#0f9d74"><svg class="si"><use href="#i-shield"/></svg></span></div><div class="tlx"><div class="card"><div class="r2"><div><b>Escuela</b><small>7:55 – 14:00</small></div><span class="pl">6 h 5 min</span></div></div></div></div>
+        <p class="anote">Lugares del día en la app. Datos de ejemplo.</p>
+      </div></div>
+    </div>
+
     <div class="frow">
       <div class="ftxt">
-        <h3>Zonas seguras y avisos de llegada</h3>
+        <h3>Zonas seguras, lugares favoritos y avisos de llegada</h3>
         <p>Marca casa, escuela o trabajo con un radio de 20, 30 o 50 metros. Cuando alguien entra o sale, la familia lo sabe. Si llega a casa, el aviso lo dice con esas palabras.</p>
-        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pide un aviso puntual cuando una persona llegue a un lugar, sin crear una zona.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ponle horario a una zona y, si alguien no llega a tiempo, la familia recibe un aviso.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>La app te sugiere crear la zona "Casa" donde estás.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pregunta "¿dónde estás?" a un familiar con un toque.</span></li></ul>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pide un aviso puntual cuando una persona llegue a un lugar, sin crear una zona.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ponle horario a una zona y, si alguien no llega a tiempo, la familia recibe un aviso.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Guarda lugares favoritos como "Casa de la abuela" o "Gimnasio": se ven en el mapa y en los lugares del día, sin mandar avisos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Cambia el nombre o el tamaño de una zona cuando quieras.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pregunta "¿dónde estás?" a un familiar con un toque.</span></li></ul>
       </div>
       <div class="fvis"><div class="uic">
         <svg class="zmap" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice"><rect width="400" height="150" fill="#eceff3"/><rect x="250" y="12" width="120" height="58" rx="10" fill="#cfe6d3"/><g stroke="#d3d8e0" stroke-width="12" fill="none"><path d="M0 40H400M0 112H400M90 0V150M200 0V150M310 0V150"/></g><g stroke="#fff" stroke-width="9" fill="none"><path d="M0 40H400M0 112H400M90 0V150M200 0V150M310 0V150"/></g><circle cx="200" cy="76" r="44" fill="#3ddc84" fill-opacity=".22" stroke="#2fb26a" stroke-width="2"/><g><circle cx="200" cy="76" r="13" fill="#d6409f" stroke="#fff" stroke-width="3"/><text x="200" y="81" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="700" fill="#fff">M</text></g></svg>
@@ -606,7 +681,7 @@
 
     <h3 class="also">Y además</h3>
     <div class="tiles">
-      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 6-8"/><path d="M3 21h18"/></svg></div><div><h4>Recorrido de 7 días</h4><p>Revisa por dónde anduvo cada quien, día por día.</p></div></div>
+      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 6-8"/><path d="M3 21h18"/></svg></div><div><h4>Recorrido de 7 días</h4><p>La ruta en el mapa y la lista de lugares, día por día.</p></div></div>
       <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><h4>Chat familiar</h4><p>Un chat solo para tu grupo dentro de la app.</p></div></div>
       <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div><div><h4>Llamar o WhatsApp</h4><p>Contacta a un familiar con un toque desde su ficha.</p></div></div>
       <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></div><div><h4>Batería a tu medida</h4><p>Elige si avisamos a 10, 15, 20 o 30 por ciento.</p></div></div>
@@ -615,6 +690,7 @@
       <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h4>Aviso de sin movimiento</h4><p>Si alguien lleva horas quieto fuera de una zona segura, la familia lo sabe. De noche no avisa.</p></div></div>
       <div class="tile"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12h6"/></svg></div><div><h4>SOS desde la pantalla de inicio</h4><p>Un widget pequeño con el botón SOS, que siempre pide confirmación.</p></div></div>
       <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div><div><h4>Borra tu cuenta cuando quieras</h4><p>Desde la app, sin pedírselo a nadie. Se borran tu cuenta y tu recorrido.</p></div></div>
+      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div><div><h4>Ajustes en un solo lugar</h4><p>Tu perfil, avisos, sirena y cuenta en su propia pantalla; la app te avisa si tu teléfono no sonaría ante un SOS.</p></div></div>
     </div>
   </div>
 </section>
@@ -814,7 +890,7 @@
       <div class="foot-col"><h4>Ayuda</h4><a href="#preguntas">Preguntas frecuentes</a><a href="#beta">Pedir acceso a la beta</a><a href="https://wa.me/526671893497?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Familia%20Segura" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div>
       <div class="foot-col"><h4>Privacidad</h4><a href="#privacidad">Cómo cuidamos tus datos</a><a href="https://jrgchvzpnt.github.io/familia-segura-web/privacidad.html">Política de privacidad</a></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Familia Segura</span><span>Versión beta 0.0.10</span></div>
+    <div class="foot-bottom"><span>© 2026 Familia Segura</span><span>Versión beta 0.0.14</span></div>
   </div>
 </footer>
 

@@ -264,6 +264,7 @@
   .m { width:24%; text-align:center; display:flex; flex-direction:column; align-items:center; min-width:0; }
   .av { width:3.4em; height:3.4em; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:700; font-style:normal; font-size:1.1em; position:relative; flex:none; }
   .av .al { position:absolute; top:0; right:0; width:.85em; height:.85em; border-radius:50%; background:#e5383b; border:.15em solid #121725; }
+  .m span.g { color:#5fd7ae; }
   .m b { font-size:.95em; margin-top:.4em; } .m span { font-size:.75em; color:#a3abbc; white-space:nowrap; } .m span.w { color:#f5a524; }
   .pp { padding:0 1.1em; }
   .pr { display:flex; align-items:center; gap:.8em; } .pr .av { width:3em; height:3em; }
@@ -282,6 +283,9 @@
   .hrow { display:flex; justify-content:space-between; align-items:center; } .hrow u { color:#9db1ff; text-decoration:none; font-size:.88em; font-weight:600; }
   .lbl { font-size:.72em; letter-spacing:.08em; color:#a3abbc; font-weight:600; margin-top:.2em; }
   .card { background:#10141f; border:1px solid #262d3d; border-radius:1.3em; padding:.8em .85em; }
+  .chipsr { display:flex; gap:.4em; overflow:hidden; white-space:nowrap; }
+  .chp { font-size:.72em; padding:.35em .8em; border-radius:.6em; border:1px solid #3a4356; color:#a3abbc; flex:none; }
+  .chp.on { background:#0b4f3c; border-color:#0b4f3c; color:#d6f5ea; }
   .card.sosc { background:#3a1012; border-color:rgba(229,56,59,.45); }
   .crow { display:flex; align-items:center; gap:.7em; }
   .badge { width:2.7em; height:2.7em; border-radius:50%; display:grid; place-items:center; flex:none; }
@@ -500,9 +504,9 @@
           <div class="sheet"><div class="grab"></div>
             <div class="shh"><b>Familia Herrera</b><small>4 personas</small></div>
             <div class="strip">
-              <div class="m"><i class="av" style="background:#2e86de">J</i><b>Yo</b><span>ahora</span></div>
+              <div class="m"><i class="av" style="background:#2e86de">J</i><b>Yo</b><span class="g">En Casa</span></div>
               <div class="m"><i class="av" style="background:#d6409f">M</i><b>Mamá</b><span>2 min</span></div>
-              <div class="m"><i class="av" style="background:#db8326">I</i><b>Isabel</b><span>4 min</span></div>
+              <div class="m"><i class="av" style="background:#db8326">I</i><b>Isabel</b><span class="g">En Escuela</span></div>
               <div class="m"><i class="av" style="background:#7b5ccf">P<em class="al"></em></i><b>Papá</b><span class="w">sin señal</span></div>
             </div>
           </div>
@@ -569,6 +573,8 @@
       <div class="sc" aria-hidden="true" data-t="Avisos al instante" data-d="SOS, llegadas, &quot;Llegué bien&quot;, batería baja y sin movimiento. Cada tipo con su color.">
         <div class="scr">
           <div class="hrow"><div><div class="h1">Avisos</div><p class="sub">Desliza un aviso para quitarlo</p></div><u>Borrar todo</u></div>
+          <div class="chipsr"><span class="chp on">Todos</span><span class="chp">SOS · 1</span><span class="chp">Llegadas · 2</span><span class="chp">Batería · 1</span></div>
+          <div class="lbl">HOY</div>
           <div class="card sosc"><div class="crow" style="align-items:flex-start"><span class="badge" style="background:rgba(229,56,59,.2)"><i class="dot" style="background:#e5383b"></i></span><div class="cb"><b>🆘 Isabel necesita ayuda</b><p>Envió una alerta de emergencia.</p><small>18:42 · hace 2 min</small></div></div></div>
           <div class="card"><div class="crow" style="align-items:flex-start"><span class="badge" style="background:rgba(95,215,174,.14)"><i class="dot" style="background:#5fd7ae"></i></span><div class="cb"><b>✅ Mamá llegó bien</b><p>Avisó que está bien.</p><small>18:20 · hace 24 min</small></div></div></div>
           <div class="card"><div class="crow" style="align-items:flex-start"><span class="badge" style="background:rgba(95,215,174,.14)"><i class="dot" style="background:#5fd7ae"></i></span><div class="cb"><b>🏠 Juan llegó bien a casa</b><p>Entró a la zona segura "Casa".</p><small>18:05 · hace 39 min</small></div></div></div>
@@ -624,7 +630,7 @@
       <div class="ftxt">
         <h3>Mira dónde está cada uno, en tiempo real</h3>
         <p>Cada familiar aparece en el mapa con su color y su inicial. Ves la hora de su última actualización, su batería y a qué distancia está de ti.</p>
-        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sigue compartiendo con la app cerrada si dejas la ubicación en "Permitir todo el tiempo".</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Marca a quien lleva más de 30 minutos sin señal, para que sepas cuándo preocuparte.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Toca a alguien para ver su dirección, su batería y su recorrido del día en vivo, con los kilómetros recorridos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Vista normal, satélite o noche; en modo oscuro el mapa también se oscurece.</span></li></ul>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sigue compartiendo con la app cerrada si dejas la ubicación en "Permitir todo el tiempo".</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Marca a quien lleva más de 30 minutos sin señal, para que sepas cuándo preocuparte.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Debajo de cada persona ves si está "En Casa", en la escuela o en otro lugar guardado.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Toca a alguien para ver su dirección, su batería y su recorrido del día en vivo, con los kilómetros recorridos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Vista normal, satélite o noche; en modo oscuro el mapa también se oscurece.</span></li></ul>
       </div>
       <div class="fvis"><div class="appcard">
         <div class="lbl">MIEMBROS · 4 DE 10</div>
@@ -640,7 +646,7 @@
       <div class="ftxt">
         <h3>Entérate de lo importante y pide ayuda al instante</h3>
         <p>Cuando algo pasa, la familia recibe un aviso: llegadas a casa, salidas de una zona, batería baja o alta velocidad. Si tú necesitas ayuda, un botón avisa a todos.</p>
-        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>El SOS manda tu ubicación a todos, hace sonar una sirena en sus teléfonos y la actualiza cada 15 segundos durante 15 minutos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Con "Llegué bien" avisas a todos con un toque que ya estás a salvo, sin sirena.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Los avisos nuevos se marcan como no leídos y se quitan deslizándolos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Comparte tu ubicación por WhatsApp con un enlace, aunque la otra persona no tenga la app.</span></li></ul>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>El SOS manda tu ubicación a todos, hace sonar una sirena en sus teléfonos y la actualiza cada 15 segundos durante 15 minutos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Con "Llegué bien" avisas a todos con un toque que ya estás a salvo, sin sirena.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Filtra los avisos (SOS, llegadas y salidas, batería) y míralos separados por hoy, ayer y fecha. Los nuevos se marcan como no leídos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Comparte tu ubicación por WhatsApp con un enlace, aunque la otra persona no tenga la app.</span></li></ul>
       </div>
       <div class="fvis"><div class="uic">
         <div class="nt crit"><i class="ni" style="color:#ff6b6b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 20h20L12 2z"/><path d="M12 9v5M12 17h.01"/></svg></i><div><b>Isabel necesita ayuda</b><p>Envió una alerta de emergencia.</p></div><small>ahora</small></div>
@@ -670,7 +676,7 @@
       <div class="ftxt">
         <h3>Zonas seguras, lugares favoritos y avisos de llegada</h3>
         <p>Marca casa, escuela o trabajo con un radio de 20, 30 o 50 metros. Cuando alguien entra o sale, la familia lo sabe. Si llega a casa, el aviso lo dice con esas palabras.</p>
-        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pide un aviso puntual cuando una persona llegue a un lugar, sin crear una zona.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ponle horario a una zona y, si alguien no llega a tiempo, la familia recibe un aviso.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Guarda lugares favoritos como "Casa de la abuela" o "Gimnasio": se ven en el mapa y en los lugares del día, sin mandar avisos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Cambia el nombre o el tamaño de una zona cuando quieras.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pregunta "¿dónde estás?" a un familiar con un toque.</span></li></ul>
+        <ul class="fl"><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pide un aviso puntual cuando una persona llegue a un lugar, sin crear una zona.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ponle horario a una zona y, si alguien no llega a tiempo, la familia recibe un aviso.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Guarda lugares favoritos como "Casa de la abuela" o "Gimnasio": se ven en el mapa y en los lugares del día, sin mandar avisos.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Ajusta el lugar exacto de una zona arrastrando un mapa pequeño, y cambia su nombre o tamaño cuando quieras.</span></li><li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span>Pregunta "¿dónde estás?" a un familiar con un toque.</span></li></ul>
       </div>
       <div class="fvis"><div class="uic">
         <svg class="zmap" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice"><rect width="400" height="150" fill="#eceff3"/><rect x="250" y="12" width="120" height="58" rx="10" fill="#cfe6d3"/><g stroke="#d3d8e0" stroke-width="12" fill="none"><path d="M0 40H400M0 112H400M90 0V150M200 0V150M310 0V150"/></g><g stroke="#fff" stroke-width="9" fill="none"><path d="M0 40H400M0 112H400M90 0V150M200 0V150M310 0V150"/></g><circle cx="200" cy="76" r="44" fill="#3ddc84" fill-opacity=".22" stroke="#2fb26a" stroke-width="2"/><g><circle cx="200" cy="76" r="13" fill="#d6409f" stroke="#fff" stroke-width="3"/><text x="200" y="81" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="700" fill="#fff">M</text></g></svg>
@@ -682,7 +688,7 @@
     <h3 class="also">Y además</h3>
     <div class="tiles">
       <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l5-5 4 3 6-8"/><path d="M3 21h18"/></svg></div><div><h4>Recorrido de 7 días</h4><p>La ruta en el mapa y la lista de lugares, día por día.</p></div></div>
-      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><h4>Chat familiar</h4><p>Un chat solo para tu grupo dentro de la app.</p></div></div>
+      <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><div><h4>Chat familiar</h4><p>Un chat solo para tu grupo: manda tu ubicación con un toque y ve quién ya leyó tu mensaje.</p></div></div>
       <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div><div><h4>Llamar o WhatsApp</h4><p>Contacta a un familiar con un toque desde su ficha.</p></div></div>
       <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M22 10v4"/><path d="M6 10v4"/></svg></div><div><h4>Batería a tu medida</h4><p>Elige si avisamos a 10, 15, 20 o 30 por ciento.</p></div></div>
       <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div><h4>Dos formas de entrar</h4><p>Con tu correo y contraseña, o con tu cuenta de Google en un toque. Si olvidas la contraseña, la recuperas por correo.</p></div></div>
@@ -691,6 +697,7 @@
       <div class="tile"><div class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12h6"/></svg></div><div><h4>SOS desde la pantalla de inicio</h4><p>Un widget pequeño con el botón SOS, que siempre pide confirmación.</p></div></div>
       <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div><div><h4>Borra tu cuenta cuando quieras</h4><p>Desde la app, sin pedírselo a nadie. Se borran tu cuenta y tu recorrido.</p></div></div>
       <div class="tile"><div class="ic "><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div><div><h4>Ajustes en un solo lugar</h4><p>Tu perfil, avisos, sirena y cuenta en su propia pantalla; la app te avisa si tu teléfono no sonaría ante un SOS.</p></div></div>
+      <div class="tile"><div class="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h3l3 7 4-14 3 7h3"/></svg></div><div><h4>Listo en 3 pasos</h4><p>Al entrar, una guía te ayuda a invitar a tu familia, crear la zona Casa y comprobar que la sirena suene.</p></div></div>
     </div>
   </div>
 </section>
@@ -890,7 +897,7 @@
       <div class="foot-col"><h4>Ayuda</h4><a href="#preguntas">Preguntas frecuentes</a><a href="#beta">Pedir acceso a la beta</a><a href="https://wa.me/526671893497?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20de%20Familia%20Segura" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div>
       <div class="foot-col"><h4>Privacidad</h4><a href="#privacidad">Cómo cuidamos tus datos</a><a href="https://jrgchvzpnt.github.io/familia-segura-web/privacidad.html">Política de privacidad</a></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Familia Segura</span><span>Versión beta 0.0.14</span></div>
+    <div class="foot-bottom"><span>© 2026 Familia Segura</span><span>Versión beta 0.0.15</span></div>
   </div>
 </footer>
 
